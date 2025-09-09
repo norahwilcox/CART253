@@ -1,5 +1,5 @@
 /**
- * My House
+ *Starter House
  * Pippin Barr
  * 
  * Draws a house with shapes.
@@ -19,13 +19,19 @@ function setup() {
 }
 
 /**
- * Draws a house
+ * Draws a house and it's environment 
  */
 function draw() {
-    // The sky
-    background(150, 200, 250);
+    drawSky();
+    drawCloud();
+    drawGround();
+    drawHouse();
+}
 
-    // A cloud
+/**
+ * Draws a fluffy white cloud
+ */
+function drawCloud() {
     push();
     noStroke();
     // Note: using a single number for a colour will be greyscale
@@ -38,14 +44,23 @@ function draw() {
     ellipse(190, 130, 60, 60);
     ellipse(220, 120, 60, 60);
     pop();
+}
 
-    // The ground
+/**
+ * Draws the ground
+ */
+function drawGround() {
     push();
     noStroke();
     fill(200);
     rect(0, 400, 640, 480);
     pop();
+}
 
+/**
+ * Draws the house
+ */
+function drawHouse() {
     // The main body of the house
     push();
     noStroke();
@@ -86,4 +101,11 @@ function draw() {
     fill(255, 215, 0);
     ellipse(340, 360, 10, 10);
     pop();
+}
+/**
+ * Displays a blue sky
+ */
+function drawSky() {
+    // The sky
+    background(150, 200, 250);
 }
