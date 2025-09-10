@@ -22,7 +22,7 @@ function setup() {
 */
 function draw() {
     // Pink background
-    background(255, 150);
+    background(255, 150, 170);
 
     // Draw the bug
     drawInsect();
