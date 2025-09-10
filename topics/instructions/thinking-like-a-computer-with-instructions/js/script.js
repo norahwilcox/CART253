@@ -21,6 +21,8 @@ function setup() {
 function draw() {
     // The void
     background("#000000");
+    fill(255, 0, 0);
+    ellipse(20, 20, 20, 20);
 
     // The eye
     drawEye();
@@ -34,7 +36,7 @@ function drawEye() {
     push();
     noStroke();
     fill("#ffffff");
-    ellipse(200, 200, 100);
+    ellipse(200, 200, 120);
     pop();
 
     // Retina
