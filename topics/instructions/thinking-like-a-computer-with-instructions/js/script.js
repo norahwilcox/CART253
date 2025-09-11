@@ -35,8 +35,8 @@ function drawEye() {
     // Eyeball
     push();
     noStroke();
-    fill("#ffffff");
-    ellipse(200, 200, 120);
+    fill("#ffffffff");
+    ellipse(200, 200, 150);
     pop();
 
     // Retina
