@@ -1,23 +1,22 @@
 /**
- * Title of Project
- * Author Name
+ * Introducing variables 
+ * Norah
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Learning what a variable is and does.
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * Create a canvas
 */
 function setup() {
-
+    createCanvas(640, 648);
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draws a circle in the center of canvas 
 */
 function draw() {
 
