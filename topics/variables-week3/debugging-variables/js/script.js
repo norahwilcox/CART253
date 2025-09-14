@@ -8,37 +8,38 @@
 
 "use strict";
 
-const bgColor = "#87ceeb"; // Sky blue
+// Sky blue
+const bgColour = "#87ceeb"; 
 
 // The bug
 const bug = {
     // Position and dimensions
-    x: 250
+    x: 250,
     y: 0,
     w: 20,
+
     // Movement
     velocity: {
         x: -100,
         y: -12, // Starts moving down
     },
+
     // Colour
     color: "#87ceeb" // Dark brown
-
+}
 
 /**
  * Create the canvas
 */
 function setup() {
-        createCanvas(500, 500);
-}
-
+    createCanvas(500, 500);
+};
 
 /**
  * Updates and draws the bug
 */
 function draw() {
     background(bgColour);
-
     moveBug();
     drawBug();
 }
