@@ -1,8 +1,8 @@
 /**
  * Constrain that Ego!
- * Pippin Barr
+ * Norah Wilcox
  * 
- * This ego is out of control...
+ * This ego is now controlled
  */
 
 "use strict";
@@ -12,6 +12,8 @@ let ego = {
     x: 200,
     y: 200,
     size: 1,
+    minSize: 0,
+    maxSize: 100,
     fill: 200
 };
 
@@ -34,6 +36,7 @@ function draw() {
     ego.fill = ego.fill - 0.5;
     // Size gets bigger, symbolizing taking up emotional space
     ego.size = ego.size + 1;
+    ego.size = constrain(ego.size, ego.minSize, ego.maxSize);
 
     // Draw the ego
     push();
