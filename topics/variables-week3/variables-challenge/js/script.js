@@ -78,7 +78,6 @@ function draw() {
     // Mr. Furious shakes with rage
     mrFurious.x = mrFurious.x + random(1, -1);
     
-    //mrFurious.y = mrFurious.y + random(10);
 
 
     // Draws the Annoying Bird
