@@ -1,6 +1,6 @@
 /**
  * Creature Loves Mouse
- * Pippin Barr
+ * Norah Wilcox
  * 
  * A creature that responds to the mouse by changing colour
  */
@@ -22,7 +22,7 @@ const creature = {
     // about the creature
     fills: {
         bored: "#000000", // Black
-        happy: "#33cc33", // Green
+        happy: "#ffdd01ff", // Green
         angry: "#cc3333" // Red
     }
 };
@@ -48,7 +48,18 @@ function draw() {
  * Responds to user input
  */
 function checkInput() {
-    // We'll need to figure this out
+    if (mouseIsPressed) {
+        // If mouse in pressed creature becomes happy!
+        creature.fill = creature.fills.happy;
+    }
+    else if (keyIsPressed) {
+        // If key is pressed creature is angry!
+        creature.fill = creature.fills.angry;
+    }
+    else {
+        // If key and mouse are released creature is bored
+        creature.fill = creature.fills.bored;
+    }
 }
 
 /**
