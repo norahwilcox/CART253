@@ -12,6 +12,8 @@
 */
 function setup() {
     createCanvas(640, 720);
+    // Sets angle mode to degrees
+    angleMode(DEGREES);
 }
 
 /**
@@ -23,9 +25,6 @@ function draw() {
     // Draws the character
     drawHead();
     drawEyes();
-
-    // Rotates the eye
-   
 }
 
 /**
@@ -53,7 +52,6 @@ function drawEyes() {
     // Draws the eye white
     push();
     translate(365, 300);
-    angleMode(DEGREES);
     let angleToMouse = atan2(mouseY - height / 2, mouseX - width / 2);
     translate(width / 2, height / 2);
     rotate(angleToMouse);
@@ -64,7 +62,6 @@ function drawEyes() {
     // Draws the pupil
     push();
     translate(365, 300);
-    angleMode(DEGREES);
     let angleToMouse = atan2(mouseY - height / 2, mouseX - width / 2);
     translate(width / 2, height / 2);
     rotate(angleToMouse);
@@ -72,7 +69,4 @@ function drawEyes() {
     fill(0);
     arc(0, 0, 70, 70, 270, 450);
     pop();
-
-    // Rotates the eye to follow the curser
-    //angle = angle + 1;
 }
