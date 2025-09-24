@@ -25,6 +25,7 @@ function draw() {
     // Draws the character
     drawHead();
     drawEyes();
+    drawBody();
 }
 
 /**
@@ -46,10 +47,10 @@ function drawHead() {
 }
 
 /**
- * Draws the eyes
+ * Draws and animates the eyes
  */
 function drawEyes() {
-    // Draws the eye white
+    // Draws and moves the eye white
     push();
     translate(365, 300);
     rotate(mouseX + mouseY);
@@ -57,7 +58,7 @@ function drawEyes() {
     fill(255, 255, 255);
     arc(0, 0, 70, 70, 90, 270);
     pop();
-    // Draws the pupil
+    // Draws and moves the pupil
     push();
     translate(365, 300);
     rotate(mouseX + mouseY);
@@ -65,4 +66,56 @@ function drawEyes() {
     fill(0);
     arc(0, 0, 70, 70, 270, 450);
     pop();
+}
+
+/**
+ * Draws the Body
+ */
+function drawBody() {
+    drawUpperBody();
+}
+
+/**
+ * Draws the chest
+ */
+function drawUpperBody() {
+    push();
+    noStroke();
+    fill(222, 57, 24);
+    // Draws the torso
+    rect(330, 400, 115, 240);
+    // Draws the shoulders 
+    ellipse(340, 415, 50);
+    ellipse(430, 415, 50);
+    // Draws bottom of sweater
+    rect(320, 630, 135, 30);
+    pop();
+
+    // Draws right arm 
+    push();
+    noStroke();
+    fill(222, 57, 24);
+    translate(430);
+    rect(0, 0);
+
+    // Draws left arm
+    translate();
+    rect(0, 0);
+    
+    pop();
+    // Draws the hands 
+    drawRightHand();
+    drawLeftHand();
+}
+
+/**
+ * Draws the Hands 
+ */
+// Draws right hand
+function drawRightHand() {
+    
+}
+// Draws left hand
+function drawLeftHand() {
+    
 }
