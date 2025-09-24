@@ -52,9 +52,7 @@ function drawEyes() {
     // Draws the eye white
     push();
     translate(365, 300);
-    let angleToMouse = atan2(mouseY - height / 2, mouseX - width / 2);
-    translate(width / 2, height / 2);
-    rotate(angleToMouse);
+    rotate(mouseX + mouseY);
     noStroke();
     fill(255, 255, 255);
     arc(0, 0, 70, 70, 90, 270);
@@ -62,9 +60,7 @@ function drawEyes() {
     // Draws the pupil
     push();
     translate(365, 300);
-    let angleToMouse = atan2(mouseY - height / 2, mouseX - width / 2);
-    translate(width / 2, height / 2);
-    rotate(angleToMouse);
+    rotate(mouseX + mouseY);
     noStroke();
     fill(0);
     arc(0, 0, 70, 70, 270, 450);
