@@ -24,18 +24,30 @@ function draw() {
     background(150, 200, 250);
     // Draws the character
     drawCatMe();
+    drawBug();
+
+    drawImpact();
 }
 
 /**
- * Combines all the elements to draw the caharcter
+ * Draws the whole character and moves the eye
  */
 function drawCatMe() {
+    // Draws the character
+    push();
     drawHead();
-    drawEye();
     drawLowerBody();
     drawUpperBody();
-}
 
+    // Rotates the eye with the mouse
+    translate(365, 300);
+    let x = mouseX - 365;
+    let y = mouseY - 300;
+    let a = atan2(y, x);
+    rotate(a);
+    drawEye();
+    pop();
+}
 
 /**
  * Draws the head, neck and ears. 
@@ -56,21 +68,17 @@ function drawHead() {
 }
 
 /**
- * Draws and animates the eye
+ * Draws the eye
  */
 function drawEye() {
-    // Draws and moves the eye white
+    // Draws the eye white
     push();
-    translate(365, 300);
-    rotate(mouseX + mouseY);
     noStroke();
     fill(255, 255, 255);
     arc(0, 0, 70, 70, 90, 270);
     pop();
-    // Draws and moves the pupil
+    // Draws the pupil
     push();
-    translate(365, 300);
-    rotate(mouseX + mouseY);
     noStroke();
     fill(0);
     arc(0, 0, 70, 70, 270, 450);
@@ -182,5 +190,39 @@ function drawRightHand() {
     ellipse(560, 400, 70, 40);
     // Draws the thumb
     ellipse(535, 385, 20, 40);
+    pop();
+}
+
+/**
+ * Draws the bug and attaches it to the mouse
+ */
+function drawBug() {
+    push();
+    noStroke();
+    fill(0);
+    ellipse(mouseX, mouseY, 15);
+    stroke(0);
+    fill(225, 255, 255);
+    ellipse(mouseX - 10, mouseY, 10);
+    ellipse(mouseX + 10, mouseY, 10);
+    pop();
+}
+
+/**
+ * Draws the impact 
+ */
+function drawImpact() {
+    push();
+    noStroke();
+    fill(255, 255, 255);
+    triangle(60, 60, 110, 90, 90, 120);
+    triangle(90, 120, 120, 15, 150, 100);
+    triangle(80, 100, 190, 80, 120, 170)
+    triangle(120, 95, 240, 110, 150, 130);
+    triangle(160, 120, 180, 160, 120, 160)
+    triangle(150, 160, 170, 230, 110, 160)
+    triangle(100, 130, 40, 175, 130, 150);
+    triangle(100, 150, 90, 240, 130, 150);
+    triangle(100, 100, 5, 110, 100, 150);
     pop();
 }
