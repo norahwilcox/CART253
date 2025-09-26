@@ -23,10 +23,19 @@ function draw() {
     // Draws the background
     background(150, 200, 250);
     // Draws the character
-    drawHead();
-    drawEyes();
-    drawBody();
+    drawCatMe();
 }
+
+/**
+ * Combines all the elements to draw the caharcter
+ */
+function drawCatMe() {
+    drawHead();
+    drawEye();
+    drawLowerBody();
+    drawUpperBody();
+}
+
 
 /**
  * Draws the head, neck and ears. 
@@ -37,7 +46,7 @@ function drawHead() {
     fill(255, 211, 5);
     // Draws the head
     ellipse(370, 290, 150, 140);
-    triangle(160, 350, 335, 225, 370, 365);
+    triangle(160, 350, 335, 225, 375, 360);
     // Draws the ears
     triangle(310, 245, 340, 100, 370, 235);
     triangle(370, 250, 405, 100, 440, 265);
@@ -47,9 +56,9 @@ function drawHead() {
 }
 
 /**
- * Draws and animates the eyes
+ * Draws and animates the eye
  */
-function drawEyes() {
+function drawEye() {
     // Draws and moves the eye white
     push();
     translate(365, 300);
@@ -69,14 +78,18 @@ function drawEyes() {
 }
 
 /**
- * Draws the Body
+ * Draws the lower body
  */
-function drawBody() {
-    drawUpperBody();
+function drawLowerBody() {
+    push();
+    noStroke();
+    fill(19, 26, 107);
+    rect(335, 640, 105, 240);
+    pop();
 }
 
 /**
- * Draws the chest
+ * Draws the upper body 
  */
 function drawUpperBody() {
     push();
@@ -84,38 +97,90 @@ function drawUpperBody() {
     fill(222, 57, 24);
     // Draws the torso
     rect(330, 400, 115, 240);
-    // Draws the shoulders 
-    ellipse(340, 415, 50);
-    ellipse(430, 415, 50);
-    // Draws bottom of sweater
+    // Draws the shoulders (left, right)
+    ellipse(340, 410, 50);
+    ellipse(425, 410, 50);
+    // Draws the trim of the sweater
     rect(320, 630, 135, 30);
     pop();
 
-    // Draws right arm 
+    // Joins the arms with the upper body
+    drawLeftArm();
+    drawRightArm();
+}
+
+/**
+ * Draws the arms
+ */
+// Draws the left arm 
+function drawLeftArm() {
+    // Draws upper left arm 
     push();
     noStroke();
     fill(222, 57, 24);
-    translate(430);
-    rect(0, 0);
-
-    // Draws left arm
-    translate();
-    rect(0, 0);
-    
+    translate(325, 390);
+    rotate(45);
+    rect(0, 0, 40, 145);
     pop();
-    // Draws the hands 
+    // Draws left elbow and forearm
+    push();
+    noStroke();
+    fill(222, 57, 24);
+    ellipse(234, 508, 45);
+    translate(245, 495);
+    rotate(130);
+    rect(0, 0, 40, 130);
+    pop();
+
+    // Joins the left arm and hand
+    drawLeftHand(); 
+}
+// Draws the right arm 
+function drawRightArm() {
+    // Draws upper right arm 
+    push();
+    noStroke();
+    fill(222, 57, 24);
+    translate(410, 415);
+    rotate(332);
+    rect(0, 0, 40, 150);
+    pop();
+    // Draws right elbow and forearm
+    push();
+    noStroke();
+    fill(222, 57, 24);
+    ellipse(500, 535, 45);
+    translate(522, 540);
+    rotate(200);
+    rect(0, 0, 40, 125);
+    pop();
+    
+    // Joins the right arm and hand
     drawRightHand();
-    drawLeftHand();
 }
 
 /**
  * Draws the Hands 
  */
-// Draws right hand
-function drawRightHand() {
-    
-}
 // Draws left hand
 function drawLeftHand() {
-    
+    push();
+    noStroke();
+    fill(255, 211, 5);
+    // Draws the palm of the hand
+    ellipse(110, 415, 70, 40);
+    // Draws the thumb
+    ellipse(135, 400, 20, 40);
+    pop();
+}
+// Draws right hand
+function drawRightHand() {
+    push();
+    noStroke();
+    fill(255, 211, 5);
+    // Draws the palm of the hand
+    ellipse(560, 400, 70, 40);
+    // Draws the thumb
+    ellipse(535, 385, 20, 40);
+    pop();
 }
