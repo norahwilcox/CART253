@@ -25,8 +25,6 @@ function draw() {
     // Draws the character
     drawCatMe();
     drawBug();
-
-    drawImpact();
 }
 
 /**
@@ -208,21 +206,3 @@ function drawBug() {
     pop();
 }
 
-/**
- * Draws the impact 
- */
-function drawImpact() {
-    push();
-    noStroke();
-    fill(255, 255, 255);
-    triangle(60, 60, 110, 90, 90, 120);
-    triangle(90, 120, 120, 15, 150, 100);
-    triangle(80, 100, 190, 80, 120, 170)
-    triangle(120, 95, 240, 110, 150, 130);
-    triangle(160, 120, 180, 160, 120, 160)
-    triangle(150, 160, 170, 230, 110, 160)
-    triangle(100, 130, 40, 175, 130, 150);
-    triangle(100, 150, 90, 240, 130, 150);
-    triangle(100, 100, 5, 110, 100, 150);
-    pop();
-}
