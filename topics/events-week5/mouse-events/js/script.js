@@ -1,6 +1,6 @@
 /**
  * Mouse Events
- * Pippin Barr
+ * Norah Wilcox
  * 
  * A chance to experiment with mouse events in a simple setting.
 */
@@ -44,4 +44,24 @@ function draw() {
     push();
     ellipse(ball.x, ball.y, ball.size);
     pop();
+}
+
+// Starts the ball moving
+function mousePressed() {
+    ball.velocity.x = ball.speed;
+}
+
+// Stops the ball
+function mouseReleased() {
+    ball.velocity.x = 0;
+}
+
+// Makes the ball bigger
+function mouseWheel(event) {
+    if (event.delta > 0) {
+        ball.size += 2;
+    }
+    else {
+        ball.size -= 2;
+    }
 }
