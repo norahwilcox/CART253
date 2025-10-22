@@ -1,8 +1,8 @@
 /**
- * Buzzy the parameter
- * Norah Wilcox
+ * Buzzy the return value
+ * Pippin Barr
  * 
- * A fly that buzzes around on the canvas
+ * Two flies that buzz around on the canvas
  */
 
 "use strict";
@@ -11,15 +11,15 @@
 let buzzyTheFly = {
     x: 200,
     y: 200,
-    size: 30,
-    buzziness: 4
+    size: 20,
+    buzziness: 3
 };
 
 let jazzyTheFly = {
-    x: 300,
-    y: 250,
-    size: 10,
-    buzziness: 10
+    x: 200,
+    y: 200,
+    size: 20,
+    buzziness: 3
 };
 
 /**
@@ -34,19 +34,25 @@ function setup() {
  */
 function draw() {
     background("#87ceeb");
-    // Move busy
+
     moveFly(buzzyTheFly);
     moveFly(jazzyTheFly);
-    // Draw busy
+
     drawFly(buzzyTheFly);
     drawFly(jazzyTheFly);
 }
 
+/**
+ * Move the fly passed in by updating its position
+ */
 function moveFly(fly) {
     fly.x += random(-fly.buzziness, fly.buzziness);
     fly.y += random(-fly.buzziness, fly.buzziness);
 }
 
+/**
+ * Draw the fly passed in using its properties
+ */
 function drawFly(fly) {
     push();
     noStroke();
