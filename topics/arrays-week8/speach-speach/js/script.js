@@ -43,7 +43,7 @@ function draw() {
 function mousePressed() {
     // Next line
     speechIndex = speechIndex + 1;
-    // Handle the end of the speech
+    // Handle the end of the speech, react to the end of the array
     if (speechIndex >= speech.length) {
         // Start over 
         speechIndex = 0;
