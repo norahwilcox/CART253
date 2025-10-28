@@ -1,6 +1,6 @@
 /**
  * Flies flies flies!
- * Pippin Barr
+ * Norah Wilcox
  * 
  * A project 
  */
@@ -38,6 +38,20 @@ function setup() {
 }
 
 /**
+ * Returns a random fly
+ */
+function createFly() {
+    // Generate random fly
+    let fly = {
+        x: random(0, width),
+        y: random(0, height),
+        size: random(2, 10),
+        buzziness: random(2, 8)
+    }
+    return fly;
+}
+
+/**
  * Moves and displays the flies
  */
 function draw() {
@@ -68,4 +82,31 @@ function drawFly(fly) {
     fill(0);
     ellipse(fly.x, fly.y, fly.size);
     pop();
+}
+
+/**
+ * Adds a random fly on a key pressed
+ */
+function keyPressed() {
+    // Add a new fly to the flies array
+    const newFly = createFly();
+    flies.push(newFly);
+}
+
+/**
+ * Remove a fly from the array if clicked
+ */
+function mousePressed() {
+    // Check all the flies 
+    for (let fly of flies) {
+        // Checks if the mouse is touching
+        const d = dist(mouseX, mouseY, fly.x, fly.y);
+        if (d < fly.size / 2) {
+            // This fly was clixked
+            // Get the index of this fly
+            const index = flies.indexOf(fly);
+            // Splice it out of the array, no longer in the array
+            flies.splice(index, 1);
+        }
+    }
 }
