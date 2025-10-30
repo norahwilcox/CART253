@@ -12,6 +12,7 @@ let pond;
 let frogMouthClosed;
 let frogMouthOpen;
 
+
 let yom;
 
 let x = 425; //constrain(mouseX, 113, 687);
@@ -23,6 +24,7 @@ const tongue = {
     x: 425,
     y: 248,
     size: 8,
+    tongueOut: false,
 };
 
 // Preloads the backdrop and frog 
@@ -45,12 +47,15 @@ function draw() {
     image(file, 0, 0, 800, 600);
     image(pond, 0, 0, 800, 600);
     image(frogMouthClosed, -45, -20, 850, 650);
+
+    tongueOut();
     if (mouseIsPressed) {
         image(frogMouthOpen, -45, -20, 850, 650);
         yom.play();
         drawTongue();
         moveTongue();
     }
+    debug();
 };
 
 function moveTongue() {
@@ -62,6 +67,7 @@ function mouseClicked() {
     x = mouseX
     y = mouseY
 }
+
 
 // Draws the tongue's tip and shape
 function drawTongue() {
@@ -78,4 +84,14 @@ function drawTongue() {
     strokeWeight(tongue.size);
     line(x, y, tongue.x, tongue.y);
     pop();
+}
+
+function tongueOut() {
+    if (x != targetX && y != targetY) {
+        tongue.tongueOut = true
+    }
+};
+
+function debug() {
+    console.log(x, y);
 }
