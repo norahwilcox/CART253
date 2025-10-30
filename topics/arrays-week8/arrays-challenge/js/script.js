@@ -34,8 +34,8 @@ function createBall() {
     fill: "#acefebff",
     // Movement
     velocity: {
-      x: (mouseX - mouseY),
-      y: random(mouseX - mouseY)
+      x: random(2, 4),
+      y: random(2, 4)
     }
   };
   return newBall;
