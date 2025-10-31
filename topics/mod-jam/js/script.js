@@ -14,18 +14,30 @@ let frogMouthOpen;
 let counter;
 
 let fly 
-let flyPosX = 150;
-let flyPosY = 150;
-let flySizeX = 0;
-let flySizeY = 0;
+let flyX = 150;
+let flyY = 150;
+let flyW = 65;
+let flyH = 65;
 
 let yom;
 let miss;
+let success;
+let music;
 
-let x = 425; //constrain(mouseX, 113, 687);
-let y = 248; //constrain(mouseY, 93, 507);
+let playing = false;
+let ended = false;
+
+let x = 425; 
+let y = 248; 
 let targetX = 425;
 let targetY = 248;
+
+const risingCounter = {
+    x: 690,
+    y: 600,
+    w: 40,
+    h: -20,
+};
 
 const tongue = {
     x: 440,
@@ -43,6 +55,8 @@ function preload() {
     counter = loadImage('/assets/images/frog-counter.png');
     yom = new Audio("./assets/sounds/yom.wav");
     miss = new Audio("./assets/sounds/miss.wav");
+    success = new Audio("./assets/sounds/success.wav");
+    music = new Audio ("./assets/sounds/music.wav");
 };
 
 // Creates the canvas
@@ -53,7 +67,7 @@ function setup() {
 // Draws the backdrop and frog, animates the frog eating with mouse click and moves the tongue
 function draw() {
     background(255);
-
+    
     image(pond, 0, 0, 0, 0);
     image(frogMouthClosed, 0, 0, 0, 0);
 
@@ -63,6 +77,7 @@ function draw() {
 
     image(file, 0, 0, 0, 0);
     createCounter();
+    endingSuccess();
     debug();
 };
 
@@ -70,9 +85,31 @@ function createCounter() {
     push();
     noStroke();
     fill(161, 190, 96);
-    rect(690, 580, 40, 20);
+    rect(risingCounter.x, risingCounter.y, risingCounter.w, risingCounter.h);
     pop();
     image(counter, 0, 0, 0, 0);
+    if (risingCounter.h <= -500) {
+        risingCounter.h = -500
+        music.pause();
+        success.play();
+        success.onended(handleEnd);
+        flyX = 50
+        flyY = 150
+    } 
+    else {
+        music.play();
+    }
+};
+
+function endingSuccess() {
+    if (playing === false) {
+        playing = true;
+        success.play();
+    }
+};
+
+function handleEnd() {
+    ended = false;
 };
 
 // Creates frog animation and sound when mouse is pressed
@@ -88,29 +125,30 @@ function animateFrog() {
 
 // Draws and sets the fly's position
 function createFly() {
-    image(fly, flyPosX, flyPosY, flySizeX, flySizeY);
+    image(fly, flyX, flyY, flyW, flyH);
     // Resests the fly when it flies off canvas
-    if (flyPosX > 700 || flyPosY > 650) {
-        flyPosX = 150
-        flyPosY = 150
+    if (flyX > 700 || flyY > 650) {
+        flyX = 150
+        flyY = 150
     }
     // Creates flying animation!
     else {
-        flyPosX += 3
-        flyPosY += random(2.8, -3)
+        flyX += 3
+        flyY += random(2.8, -3)
     }
 };
 
 
 function checkFlyOverlap() {
 // Get distance from tongue to fly
-    const d = dist(tongue.x, tongue.y, flyPosX, flyPosY);
+    const d = dist(tongue.x, tongue.y, flyX, flyY);
     // Check if it's an overlap
-    if (d < tongue.size + flySizeX + flySizeY) {
+    if (d < tongue.size + flyW + flyH) {
         // Success! Resets the fly and plays gom sound
-        flyPosX = 150
-        flyPosY = 150
+        flyX = 150
+        flyY = 150
         yom.play();
+        risingCounter.h -= 40
     }
 };
 
