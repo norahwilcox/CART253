@@ -12,31 +12,37 @@ let pond;
 let frogMouthClosed;
 let frogMouthOpen;
 let counter;
+let timer;
 
-let fly 
-let flyX = 150;
-let flyY = 150;
-let flyW = 65;
-let flyH = 65;
+const fly = {
+    x: 150,
+    y: 150,
+    size: 10,
+};
 
 let yom;
 let miss;
 let success;
 let music;
-
-let playing = false;
-let ended = false;
+let failure;
 
 let x = 425; 
 let y = 248; 
 let targetX = 425;
 let targetY = 248;
 
+const fillTimer = {
+    x: 75,
+    y: 600,
+    w: 40,
+    h: -500,
+};
+
 const risingCounter = {
     x: 690,
     y: 600,
     w: 40,
-    h: -20,
+    h: -2,
 };
 
 const tongue = {
@@ -51,12 +57,14 @@ function preload() {
     pond = loadImage('/assets/images/frog-pond-setting.png');
     frogMouthClosed = loadImage('/assets/images/frog-mouth-closed.png');
     frogMouthOpen = loadImage('/assets/images/frog-mouth-open.png');
-    fly = loadImage('/assets/images/frog-fly.png');
     counter = loadImage('/assets/images/frog-counter.png');
+    timer = loadImage('/assets/images/frog-timer.png');
+    
     yom = new Audio("./assets/sounds/yom.wav");
     miss = new Audio("./assets/sounds/miss.wav");
     success = new Audio("./assets/sounds/success.wav");
-    music = new Audio ("./assets/sounds/music.wav");
+    music = new Audio("./assets/sounds/music.wav");
+    failure = new Audio ("./assets/sounds/failure.wav");
 };
 
 // Creates the canvas
@@ -67,7 +75,7 @@ function setup() {
 // Draws the backdrop and frog, animates the frog eating with mouse click and moves the tongue
 function draw() {
     background(255);
-    
+   
     image(pond, 0, 0, 0, 0);
     image(frogMouthClosed, 0, 0, 0, 0);
 
@@ -77,8 +85,31 @@ function draw() {
 
     image(file, 0, 0, 0, 0);
     createCounter();
-    endingSuccess();
+    createTimer();
     debug();
+};
+
+function createTimer() {
+    push();
+    noStroke();
+    fill(161, 190, 96);
+    rect(fillTimer.x, fillTimer.y, fillTimer.w, fillTimer.h);
+    pop();
+    image(timer, 0, 0, 0, 0);
+    if (fillTimer.h >= 0) {
+        fillTimer.h = -500
+        music.pause();
+        failure.play();
+        fly.x = 50
+        fly.y = 150
+    } 
+    else if (risingCounter.h <= -500){
+        fillTimer.h = -500
+    }
+    else {
+        fillTimer.h  += 0.2
+        music.play();
+    }
 };
 
 function createCounter() {
@@ -90,26 +121,13 @@ function createCounter() {
     image(counter, 0, 0, 0, 0);
     if (risingCounter.h <= -500) {
         risingCounter.h = -500
+        fly.x = 50
+        fly.y = 150
         music.pause();
-        success.play();
-        success.onended(handleEnd);
-        flyX = 50
-        flyY = 150
     } 
-    else {
-        music.play();
-    }
-};
-
-function endingSuccess() {
-    if (playing === false) {
-        playing = true;
+    else if (risingCounter.h < -500) {
         success.play();
     }
-};
-
-function handleEnd() {
-    ended = false;
 };
 
 // Creates frog animation and sound when mouse is pressed
@@ -125,28 +143,32 @@ function animateFrog() {
 
 // Draws and sets the fly's position
 function createFly() {
-    image(fly, flyX, flyY, flyW, flyH);
+    push();
+    noStroke();
+    fill(0);
+    rect(fly.x, fly.y, fly.size, fly.size);
+    pop();
     // Resests the fly when it flies off canvas
-    if (flyX > 700 || flyY > 650) {
-        flyX = 150
-        flyY = 150
+    if (fly.x > 700 || fly.y > 650) {
+        fly.x = 150
+        fly.y = 150
     }
     // Creates flying animation!
     else {
-        flyX += 3
-        flyY += random(2.8, -3)
+        fly.x += 3
+        fly.y += random(3, -3)
     }
 };
 
 
 function checkFlyOverlap() {
 // Get distance from tongue to fly
-    const d = dist(tongue.x, tongue.y, flyX, flyY);
+    const d = dist(x, y, fly.x, fly.y);
     // Check if it's an overlap
-    if (d < tongue.size + flyW + flyH) {
+    if (d < tongue.size / 2 + fly.size / 2) {
         // Success! Resets the fly and plays gom sound
-        flyX = 150
-        flyY = 150
+        fly.x = 150
+        fly.y = 150
         yom.play();
         risingCounter.h -= 40
     }
@@ -182,5 +204,5 @@ function drawTongue() {
 }
 
 function debug() {
-    console.log();
+    console.log(x);
 }
