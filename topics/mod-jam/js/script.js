@@ -7,6 +7,8 @@
 
 "use strict";
 
+var whichscreen = "start"
+
 let file;
 let pond;
 let frogMouthClosed;
@@ -25,6 +27,9 @@ let miss;
 let success;
 let music;
 let failure;
+
+let isPlaying = false;
+let isDone = false;
 
 let x = 425; 
 let y = 248; 
@@ -62,7 +67,7 @@ function preload() {
     
     yom = new Audio("./assets/sounds/yom.wav");
     miss = new Audio("./assets/sounds/miss.wav");
-    success = new Audio("./assets/sounds/success.wav");
+    success = new Audio ("./assets/sounds/success.wav");
     music = new Audio("./assets/sounds/music.wav");
     failure = new Audio ("./assets/sounds/failure.wav");
 };
@@ -74,19 +79,68 @@ function setup() {
 
 // Draws the backdrop and frog, animates the frog eating with mouse click and moves the tongue
 function draw() {
+    
+    if (whichscreen === "start") {
+        startScreen()
+    }
+    else if (whichscreen === "game") {
+        gameScreen()
+    }
+    else if (whichscreen === "success") {
+        successScreen()
+    }
+    else {
+        failureScreen()
+    }
+    debug();
+};
+
+function startScreen() {
     background(255);
-   
+    image(file, 0, 0, 0, 0);
+    textSize(20)
+    text("Press anywhere to start the game!", 50, 200)
+
+    if (mouseIsPressed) {
+        whichscreen = "game"
+    }
+}
+
+function gameScreen() {
     image(pond, 0, 0, 0, 0);
     image(frogMouthClosed, 0, 0, 0, 0);
-
+    
     createFly();
     animateFrog();
     checkFlyOverlap();
 
     image(file, 0, 0, 0, 0);
+
     createCounter();
     createTimer();
-    debug();
+
+    if (risingCounter.h <= -500) {
+        whichscreen = "success"
+    }
+    else if (fillTimer.h >= 0) {
+        whichscreen = "failure"
+    }
+}
+
+function successScreen() {
+    background(255);
+    image(file, 0, 0, 0, 0);
+
+    successAudio();
+    music.pause();
+};
+
+function failureScreen() {
+    background(255);
+    image(file, 0, 0, 0, 0);
+
+    failureAudio();
+    music.pause();
 };
 
 function createTimer() {
@@ -96,20 +150,8 @@ function createTimer() {
     rect(fillTimer.x, fillTimer.y, fillTimer.w, fillTimer.h);
     pop();
     image(timer, 0, 0, 0, 0);
-    if (fillTimer.h >= 0) {
-        fillTimer.h = -500
-        music.pause();
-        failure.play();
-        fly.x = 50
-        fly.y = 150
-    } 
-    else if (risingCounter.h <= -500){
-        fillTimer.h = -500
-    }
-    else {
-        fillTimer.h  += 0.2
-        music.play();
-    }
+    fillTimer.h  += 0.2
+    music.play();
 };
 
 function createCounter() {
@@ -119,15 +161,7 @@ function createCounter() {
     rect(risingCounter.x, risingCounter.y, risingCounter.w, risingCounter.h);
     pop();
     image(counter, 0, 0, 0, 0);
-    if (risingCounter.h <= -500) {
-        risingCounter.h = -500
-        fly.x = 50
-        fly.y = 150
-        music.pause();
-    } 
-    else if (risingCounter.h < -500) {
-        success.play();
-    }
+    music.pause();
 };
 
 // Creates frog animation and sound when mouse is pressed
@@ -138,6 +172,24 @@ function animateFrog() {
         miss.play();
         drawTongue();
         moveTongue();
+    }
+};
+
+function successAudio() {
+    if (isPlaying === false) {
+        isPlaying = true;
+        isDone = false;
+        success.play();
+        handleEnd()
+    }
+};
+
+function failureAudio() {
+    if (isPlaying === false) {
+        isPlaying = true;
+        isDone = false;
+        failure.play();
+        handleEnd()
     }
 };
 
@@ -184,7 +236,7 @@ function moveTongue() {
 function mouseClicked() {
     x = mouseX
     y = mouseY
-}
+};
 
 // Draws the tongue's tip and shape
 function drawTongue() {
@@ -201,8 +253,13 @@ function drawTongue() {
     strokeWeight(tongue.size);
     line(x, y, tongue.x, tongue.y);
     pop();
-}
+};
+
+function handleEnd() {
+  isPlaying = false;
+  isDone = true;
+};
 
 function debug() {
     console.log(x);
-}
+};
