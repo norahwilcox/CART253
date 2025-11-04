@@ -19,7 +19,7 @@ let timer;
 const fly = {
     x: 150,
     y: 150,
-    size: 10,
+    size: 8,
 };
 
 let yom;
@@ -27,9 +27,6 @@ let miss;
 let success;
 let music;
 let failure;
-
-let isPlaying = false;
-let isDone = false;
 
 let x = 425; 
 let y = 248; 
@@ -79,7 +76,6 @@ function setup() {
 
 // Draws the backdrop and frog, animates the frog eating with mouse click and moves the tongue
 function draw() {
-    
     if (whichscreen === "start") {
         startScreen()
     }
@@ -97,61 +93,63 @@ function draw() {
 
 function startScreen() {
     background(255);
-    image(file, 0, 0, 0, 0);
-    textSize(20)
-    text("Press anywhere to start the game!", 50, 200)
+    textSize(20);
+    text("Click to start!", 170, 200);
 
     if (mouseIsPressed) {
         whichscreen = "game"
+        music.play();
     }
+    image(file, 0, 0, 0, 0);
 }
 
 function gameScreen() {
-    image(pond, 0, 0, 0, 0);
-    image(frogMouthClosed, 0, 0, 0, 0);
+    background(255);
+    image(pond, 160, 100, 0, 0);
     
     createFly();
     animateFrog();
     checkFlyOverlap();
 
+    if (risingCounter.h <= -500) {
+        whichscreen = "success"
+    }
+    else if (fillTimer.h >= 1) {
+        whichscreen = "failure"
+    }
+  
     image(file, 0, 0, 0, 0);
 
     createCounter();
     createTimer();
-
-    if (risingCounter.h <= -500) {
-        whichscreen = "success"
-    }
-    else if (fillTimer.h >= 0) {
-        whichscreen = "failure"
-    }
 }
 
 function successScreen() {
-    background(255);
-    image(file, 0, 0, 0, 0);
-
-    successAudio();
+    textSize(20);
+    text("Success! Refresh to play again.", 170, 200);
+    //success.play();
     music.pause();
+    image(file, 0, 0, 0, 0);
 };
 
 function failureScreen() {
-    background(255);
-    image(file, 0, 0, 0, 0);
+    textSize(20);
+    text("Failure! Refresh to play again.", 170, 200);
 
-    failureAudio();
+    //failure.play();
     music.pause();
-};
+    image(file, 0, 0, 0, 0);
+}; 
 
 function createTimer() {
     push();
     noStroke();
     fill(161, 190, 96);
     rect(fillTimer.x, fillTimer.y, fillTimer.w, fillTimer.h);
+    fillTimer.h += 0.2
     pop();
-    image(timer, 0, 0, 0, 0);
-    fillTimer.h  += 0.2
-    music.play();
+
+    image(timer, 63, 80, 0, 0);
 };
 
 function createCounter() {
@@ -160,36 +158,18 @@ function createCounter() {
     fill(161, 190, 96);
     rect(risingCounter.x, risingCounter.y, risingCounter.w, risingCounter.h);
     pop();
-    image(counter, 0, 0, 0, 0);
-    music.pause();
+
+    image(counter, 675, 80, 0, 0);
 };
 
 // Creates frog animation and sound when mouse is pressed
 function animateFrog() {
-    image(frogMouthClosed, 0, 0, 0, 0);
+    image(frogMouthClosed, 410, 261, 0, 0);
     if (mouseIsPressed) {
-        image(frogMouthOpen, 0, 0, 0, 0);
+        image(frogMouthOpen, 410, 253, 0, 0);
         miss.play();
         drawTongue();
         moveTongue();
-    }
-};
-
-function successAudio() {
-    if (isPlaying === false) {
-        isPlaying = true;
-        isDone = false;
-        success.play();
-        handleEnd()
-    }
-};
-
-function failureAudio() {
-    if (isPlaying === false) {
-        isPlaying = true;
-        isDone = false;
-        failure.play();
-        handleEnd()
     }
 };
 
@@ -205,16 +185,15 @@ function createFly() {
         fly.x = 150
         fly.y = 150
     }
-    // Creates flying animation!
+        // Creates flying animation!
     else {
         fly.x += 3
-        fly.y += random(3, -3)
+        fly.y += random(4, -4)
     }
 };
 
-
 function checkFlyOverlap() {
-// Get distance from tongue to fly
+    // Get distance from tongue to fly
     const d = dist(x, y, fly.x, fly.y);
     // Check if it's an overlap
     if (d < tongue.size / 2 + fly.size / 2) {
@@ -228,8 +207,8 @@ function checkFlyOverlap() {
 
 // Gives the tongue delayed movement towards the target area
 function moveTongue() {
-    x = lerp(x, targetX, 0.08);
-    y = lerp(y, targetY, 0.08);
+    x = lerp(x, targetX, 0.1);
+    y = lerp(y, targetY, 0.1);
 };
 
 // Sets x and y when the user clicks the mouse 
@@ -255,11 +234,12 @@ function drawTongue() {
     pop();
 };
 
+/** 
 function handleEnd() {
   isPlaying = false;
   isDone = true;
 };
-
-function debug() {
-    console.log(x);
+*/
+function debug(drawTongue) {
+    console.log(image(frogMouthClosed));
 };
