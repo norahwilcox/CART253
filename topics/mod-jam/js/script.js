@@ -16,6 +16,10 @@ let frogMouthOpen;
 let counter;
 let timer;
 
+let title1;
+let title2;
+let title3;
+
 const fly = {
     x: 150,
     y: 150,
@@ -61,6 +65,10 @@ function preload() {
     frogMouthOpen = loadImage('/assets/images/frog-mouth-open.png');
     counter = loadImage('/assets/images/frog-counter.png');
     timer = loadImage('/assets/images/frog-timer.png');
+
+    title1 = loadImage('/assets/images/title-1.png');
+    title2 = loadImage('/assets/images/title-2.png');
+    title3 = loadImage('/assets/images/title-3.png');
     
     yom = new Audio("./assets/sounds/yom.wav");
     miss = new Audio("./assets/sounds/miss.wav");
@@ -93,8 +101,7 @@ function draw() {
 
 function startScreen() {
     background(255);
-    textSize(20);
-    text("Click to start!", 170, 200);
+    image(title1, 160, 100, 0, 0);
 
     if (mouseIsPressed) {
         whichscreen = "game"
@@ -125,16 +132,14 @@ function gameScreen() {
 }
 
 function successScreen() {
-    textSize(20);
-    text("Success! Refresh to play again.", 170, 200);
+    image(title2, 160, 100, 0, 0);
     //success.play();
     music.pause();
     image(file, 0, 0, 0, 0);
 };
 
 function failureScreen() {
-    textSize(20);
-    text("Failure! Refresh to play again.", 170, 200);
+    image(title3, 160, 100, 0, 0);
 
     //failure.play();
     music.pause();
