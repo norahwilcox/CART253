@@ -74,16 +74,16 @@ const risingCounter = {
  */
 function preload() {
     // loads all image assets 
-    file = loadImage('/assets/images/frog-file-background.png');
-    pond = loadImage('/assets/images/frog-pond-setting.png');
-    frogMouthClosed = loadImage('/assets/images/frog-mouth-closed.png');
-    frogMouthOpen = loadImage('/assets/images/frog-mouth-open.png');
-    counter = loadImage('/assets/images/frog-counter.png');
-    timer = loadImage('/assets/images/frog-timer.png');
+    file = loadImage('./assets/images/frog-file-background.png');
+    pond = loadImage('./assets/images/frog-pond-setting.png');
+    frogMouthClosed = loadImage('./assets/images/frog-mouth-closed.png');
+    frogMouthOpen = loadImage('./assets/images/frog-mouth-open.png');
+    counter = loadImage('./assets/images/frog-counter.png');
+    timer = loadImage('./assets/images/frog-timer.png');
 
-    title1 = loadImage('/assets/images/title-1.png');
-    title2 = loadImage('/assets/images/title-2.png');
-    title3 = loadImage('/assets/images/title-3.png');
+    title1 = loadImage('./assets/images/title-1.png');
+    title2 = loadImage('./assets/images/title-2.png');
+    title3 = loadImage('./assets/images/title-3.png');
     
     // loads all audio assets 
     yom = new Audio("./assets/sounds/yom.wav");
