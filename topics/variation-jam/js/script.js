@@ -25,7 +25,7 @@ function preload() {
 
 function setup() {
   createCanvas(1200, 800);
-  button1 = new Button(495, 450, startButtonUp);
+  button1 = new Button(495, 520, startButtonUp);
 }
 
 function draw() {
@@ -43,12 +43,18 @@ function draw() {
     else {
         productScreen()
     }
+  
+  
 }
 
 function startScreen() {
     image(title, 370, 200);
     image(namez, 460, 310);
-    button1.display();
+  button1.display();
+}
+
+function gameScreen() {
+  
 }
 
 class Button {
@@ -63,16 +69,17 @@ class Button {
     
     // tint the image on mouse hover
     if (this.over()) {
-        image(startButtonDown, this.x, this.y);
+      image(startButtonDown, this.x, this.y);
     } else {
-        image(this.startButtonUp, this.x, this.y);
+      image(this.startButtonUp, this.x, this.y);
     }
   }
   
   // over automatically matches the width & height of the image read from the file
   // see this.img.width and this.img.height below
   over() {
-    if (mouseX > this.x && mouseX < this.x + this.startButtonUp.width && mouseY > this.y && mouseY < this.y + this.startButtonUp.height) {
+    if (mouseX > this.x && mouseX < this.x + this.startButtonUp.width && mouseY >
+        this.y && mouseY < this.y + this.startButtonUp.height) {
       return true;
     } else {
       return false;
