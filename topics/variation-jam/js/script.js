@@ -1233,13 +1233,15 @@ function drawFace() {
 function drawHead() {
   let img;
   let Offset = 0;
-
   // adjust based on style
   if (selectedHeadShape === "long") {
     Offset = 8;
   }
   if (selectedSkin === "peach") {
     Offset = -8;
+  }
+   if (selectedSkin === "peach" && selectedHeadShape === "long") {
+    Offset = 0;
   }
 
   if (selectedHeadShape === "long") {
