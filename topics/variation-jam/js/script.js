@@ -324,6 +324,7 @@ let sideRed;
 let sideUmber;
 
 let click;
+let pick;
 
 const headTab = {
   x: 460,
@@ -575,6 +576,7 @@ function preload() {
   sideUmber = loadImage('./assets/images/Bangs/side.umber.png');
 
   click = new Audio("./assets/sounds/ui-pop.mp3");
+  pick = new Audio("./assets/sounds/ui-pick.mp3");
 }
 
 function setup() {
@@ -947,7 +949,7 @@ function mousePressed() {
 if (whichfile === "head") {
   for (let btn of headSelectButtons) {
   if (btn.over()) {
-    click.play();
+    pick.play();
     headSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
@@ -960,7 +962,7 @@ if (whichfile === "head") {
 }
   for (let btn of skinSelectButtons) {
   if (btn.over()) {
-    click.play();
+    pick.play();
     skinSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
@@ -975,7 +977,7 @@ if (whichfile === "head") {
 if (whichfile === "face") {
   for (let btn of noseSelectButtons) {
   if (btn.over()) {
-    click.play();
+    pick.play();
     noseSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
@@ -989,7 +991,7 @@ if (whichfile === "face") {
   }
   for (let btn of mouthSelectButtons) {
   if (btn.over()) {
-    click.play();
+    pick.play();
     mouthSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
@@ -1005,7 +1007,7 @@ if (whichfile === "face") {
   }
   for (let btn of detailSelectButtons) {
   if (btn.over()) {
-    click.play();
+    pick.play();
     detailSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
@@ -1026,7 +1028,7 @@ if (whichfile === "face") {
 if (whichfile === "hair") {
   for (let btn of bangsSelectButtons) {
   if (btn.over()) {
-    click.play();
+    pick.play();
     bangsSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
@@ -1053,7 +1055,7 @@ if (whichfile === "hair") {
   }
   for (let btn of hairSelectButtons) {
     if (btn.over()) {
-      click.play();
+      pick.play();
     
 
       // Reset all buttons first
@@ -1068,7 +1070,7 @@ if (whichfile === "hair") {
 if (whichfile === "hair2") {
   for (let btn of strandSelectButtons) {
     if (btn.over()) {
-      click.play();
+      pick.play();
       
 
       // Reset all buttons first
@@ -1083,7 +1085,7 @@ if (whichfile === "hair2") {
   }
   for (let btn of dyeSelectButtons) {
   if (btn.over()) {
-    click.play();
+    pick.play();
     dyeSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
