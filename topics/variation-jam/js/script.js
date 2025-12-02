@@ -8,8 +8,8 @@
 
 "use strict";
 
-var whichscreen = "start";
-var whichfile = "head";
+var whichscreen = "game";
+var whichfile = "hair";
 
 let selectedHeadShape = "reg"; 
 let selectedSkin = "peach";
@@ -19,11 +19,14 @@ let selectedMouth = "buck";
 let selectedDetail = "none"; 
 
 let selectedBangs = "curly";
+let selectedHair = "shortCut";
+let selectedStrands = "1";
 let selectedDye = "black";
 
 let start;
 let startButtonUp;
 let startButtonDown;
+let frame;
 
 let headSelectButtons = [];
 let skinSelectButtons = [];
@@ -323,6 +326,138 @@ let sidePink;
 let sideRed;
 let sideUmber;
 
+let braidsBlack;
+let braidsBlonde;
+let braidsBlue;
+let braidsBrunette;
+let braidsDirty;
+let braidsGinger;
+let braidsGrey;
+let braidsPink;
+let braidsRed;
+let braidsUmber;
+
+let bunsBlack;
+let bunsBlonde;
+let bunsBlue;
+let bunsBrunette;
+let bunsDirty;
+let bunsGinger;
+let bunsGrey;
+let bunsPink;
+let bunsRed;
+let bunsUmber;
+
+let curlyCutBlack;
+let curlyCutBlonde;
+let curlyCutBlue;
+let curlyCutBrunette;
+let curlyCutDirty;
+let curlyCutGinger;
+let curlyCutGrey;
+let curlyCutPink;
+let curlyCutRed;
+let curlyCutUmber;
+
+let longPonyBlack;
+let longPonyBlonde;
+let longPonyBlue;
+let longPonyBrunette;
+let longPonyDirty;
+let longPonyGinger;
+let longPonyGrey;
+let longPonyPink;
+let longPonyRed;
+let longPonyUmber;
+
+let pigtailsBlack;
+let pigtailsBlonde;
+let pigtailsBlue;
+let pigtailsBrunette;
+let pigtailsDirty;
+let pigtailsGinger;
+let pigtailsGrey;
+let pigtailsPink;
+let pigtailsRed;
+let pigtailsUmber;
+
+let ponyBlack;
+let ponyBlonde;
+let ponyBlue;
+let ponyBrunette;
+let ponyDirty;
+let ponyGinger;
+let ponyGrey;
+let ponyPink;
+let ponyRed;
+let ponyUmber;
+
+let poofyBlack;
+let poofyBlonde;
+let poofyBlue;
+let poofyBrunette;
+let poofyDirty;
+let poofyGinger;
+let poofyGrey;
+let poofyPink;
+let poofyRed;
+let poofyUmber;
+
+let shortCutBlack;
+let shortCutBlonde;
+let shortCutBlue;
+let shortCutBrunette;
+let shortCutDirty;
+let shortCutGinger;
+let shortCutGrey;
+let shortCutPink;
+let shortCutRed;
+let shortCutUmber;
+
+let straightCutBlack;
+let straightCutBlonde;
+let straightCutBlue;
+let straightCutBrunette;
+let straightCutDirty;
+let straightCutGinger;
+let straightCutGrey;
+let straightCutPink;
+let straightCutRed;
+let straightCutUmber;
+
+let wavyBlack;
+let wavyBlonde;
+let wavyBlue;
+let wavyBrunette;
+let wavyDirty;
+let wavyGinger;
+let wavyGrey;
+let wavyPink;
+let wavyRed;
+let wavyUmber;
+
+let black1;
+let blonde1;
+let brunette1;
+let dirty1;
+let ginger1;
+let grey1;
+let pink1;
+let red1;
+let umber1;
+let blue1;
+
+let black2;
+let blonde2;
+let brunette2;
+let dirty2;
+let ginger2;
+let grey2;
+let pink2;
+let umber2;
+let red2;
+let blue2;
+
 let click;
 let pick;
 
@@ -366,6 +501,8 @@ function preload() {
   file = loadImage('./assets/images/file.png');
   openTab = loadImage('./assets/images/file.tab.light.png');
   closedTab = loadImage('./assets/images/file.tab.dark.png');
+
+  frame = loadImage('./assets/images/frame.png');
 
   eyes = loadImage('./assets/images/eyes.png');
 
@@ -575,6 +712,138 @@ function preload() {
   sideRed = loadImage('./assets/images/Bangs/side.red.png');
   sideUmber = loadImage('./assets/images/Bangs/side.umber.png');
 
+  braidsBlack = loadImage('./assets/images/Hair/braids.black.png');
+  braidsBlonde = loadImage('./assets/images/Hair/braids.blonde.png');
+  braidsBlue = loadImage('./assets/images/Hair/braids.blue.png');
+  braidsBrunette = loadImage('./assets/images/Hair/braids.brunette.png');
+  braidsDirty = loadImage('./assets/images/Hair/braids.dirty.png');
+  braidsGinger = loadImage('./assets/images/Hair/braids.ginger.png');
+  braidsGrey = loadImage('./assets/images/Hair/braids.grey.png');
+  braidsPink = loadImage('./assets/images/Hair/braids.pink.png');
+  braidsRed = loadImage('./assets/images/Hair/braids.red.png');
+  braidsUmber = loadImage('./assets/images/Hair/braids.umber.png');
+
+  bunsBlack = loadImage('./assets/images/Hair/buns.black.png');
+  bunsBlonde = loadImage('./assets/images/Hair/buns.blonde.png');
+  bunsBlue = loadImage('./assets/images/Hair/buns.blue.png');
+  bunsBrunette = loadImage('./assets/images/Hair/buns.brunette.png');
+  bunsDirty = loadImage('./assets/images/Hair/buns.dirty.png');
+  bunsGinger = loadImage('./assets/images/Hair/buns.ginger.png');
+  bunsGrey = loadImage('./assets/images/Hair/buns.grey.png');
+  bunsPink = loadImage('./assets/images/Hair/buns.pink.png');
+  bunsRed = loadImage('./assets/images/Hair/buns.red.png');
+  bunsUmber = loadImage('./assets/images/Hair/buns.umber.png');
+
+  curlyCutBlack = loadImage('./assets/images/Hair/curly-cut.black.png');
+  curlyCutBlonde = loadImage('./assets/images/Hair/curly-cut.blonde.png');
+  curlyCutBlue = loadImage('./assets/images/Hair/curly-cut.blue.png');
+  curlyCutBrunette = loadImage('./assets/images/Hair/curly-cut.brunette.png');
+  curlyCutDirty = loadImage('./assets/images/Hair/curly-cut.dirty.png');
+  curlyCutGinger = loadImage('./assets/images/Hair/curly-cut.ginger.png');
+  curlyCutGrey = loadImage('./assets/images/Hair/curly-cut.grey.png');
+  curlyCutPink = loadImage('./assets/images/Hair/curly-cut.pink.png');
+  curlyCutRed = loadImage('./assets/images/Hair/curly-cut.red.png');
+  curlyCutUmber = loadImage('./assets/images/Hair/curly-cut.umber.png');
+
+  longPonyBlack = loadImage('./assets/images/Hair/long-pony.black.png');
+  longPonyBlonde = loadImage('./assets/images/Hair/long-pony.blonde.png');
+  longPonyBlue = loadImage('./assets/images/Hair/long-pony.blue.png');
+  longPonyBrunette = loadImage('./assets/images/Hair/long-pony.brunette.png');
+  longPonyDirty = loadImage('./assets/images/Hair/long-pony.dirty.png');
+  longPonyGinger = loadImage('./assets/images/Hair/long-pony.ginger.png');
+  longPonyGrey = loadImage('./assets/images/Hair/long-pony.grey.png');
+  longPonyPink = loadImage('./assets/images/Hair/long-pony.pink.png');
+  longPonyRed = loadImage('./assets/images/Hair/long-pony.red.png');
+  longPonyUmber = loadImage('./assets/images/Hair/long-pony.umber.png');
+
+  pigtailsBlack = loadImage('./assets/images/Hair/pigtails.black.png');
+  pigtailsBlonde = loadImage('./assets/images/Hair/pigtails.blonde.png');
+  pigtailsBlue = loadImage('./assets/images/Hair/pigtails.blue.png');
+  pigtailsBrunette = loadImage('./assets/images/Hair/pigtails.brunette.png');
+  pigtailsDirty = loadImage('./assets/images/Hair/pigtails.dirty.png');
+  pigtailsGinger = loadImage('./assets/images/Hair/pigtails.ginger.png');
+  pigtailsGrey = loadImage('./assets/images/Hair/pigtails.grey.png');
+  pigtailsPink = loadImage('./assets/images/Hair/pigtails.pink.png');
+  pigtailsRed = loadImage('./assets/images/Hair/pigtails.red.png');
+  pigtailsUmber = loadImage('./assets/images/Hair/pigtails.umber.png');
+
+  ponyBlack = loadImage('./assets/images/Hair/pony.black.png');
+  ponyBlonde = loadImage('./assets/images/Hair/pony.blonde.png');
+  ponyBlue = loadImage('./assets/images/Hair/pony.blue.png');
+  ponyBrunette = loadImage('./assets/images/Hair/pony.brunette.png');
+  ponyDirty = loadImage('./assets/images/Hair/pony.dirty.png');
+  ponyGinger = loadImage('./assets/images/Hair/pony.ginger.png');
+  ponyGrey = loadImage('./assets/images/Hair/pony.grey.png');
+  ponyPink = loadImage('./assets/images/Hair/pony.pink.png');
+  ponyRed = loadImage('./assets/images/Hair/pony.red.png');
+  ponyUmber = loadImage('./assets/images/Hair/pony.umber.png');
+
+  poofyBlack = loadImage('./assets/images/Hair/poofy.black.png');
+  poofyBlonde = loadImage('./assets/images/Hair/poofy.blonde.png');
+  poofyBlue = loadImage('./assets/images/Hair/poofy.blue.png');
+  poofyBrunette = loadImage('./assets/images/Hair/poofy.brunette.png');
+  poofyDirty = loadImage('./assets/images/Hair/poofy.dirty.png');
+  poofyGinger = loadImage('./assets/images/Hair/poofy.ginger.png');
+  poofyGrey = loadImage('./assets/images/Hair/poofy.grey.png');
+  poofyPink = loadImage('./assets/images/Hair/poofy.pink.png');
+  poofyRed = loadImage('./assets/images/Hair/poofy.red.png');
+  poofyUmber = loadImage('./assets/images/Hair/poofy.umber.png');
+
+  shortCutBlack = loadImage('./assets/images/Hair/short-cut.black.png');
+  shortCutBlonde = loadImage('./assets/images/Hair/short-cut.blonde.png');
+  shortCutBlue = loadImage('./assets/images/Hair/short-cut.blue.png');
+  shortCutBrunette = loadImage('./assets/images/Hair/short-cut.brunette.png');
+  shortCutDirty = loadImage('./assets/images/Hair/short-cut.dirty.png');
+  shortCutGinger = loadImage('./assets/images/Hair/short-cut.ginger.png');
+  shortCutGrey = loadImage('./assets/images/Hair/short-cut.grey.png');
+  shortCutPink = loadImage('./assets/images/Hair/short-cut.pink.png');
+  shortCutRed = loadImage('./assets/images/Hair/short-cut.red.png');
+  shortCutUmber = loadImage('./assets/images/Hair/short-cut.umber.png');
+
+  straightCutBlack = loadImage('./assets/images/Hair/straight.black.png');
+  straightCutBlonde = loadImage('./assets/images/Hair/straight.blonde.png');
+  straightCutBlue = loadImage('./assets/images/Hair/straight.blue.png');
+  straightCutBrunette = loadImage('./assets/images/Hair/straight.brunette.png');
+  straightCutDirty = loadImage('./assets/images/Hair/straight.dirty.png');
+  straightCutGinger = loadImage('./assets/images/Hair/straight.ginger.png');
+  straightCutGrey = loadImage('./assets/images/Hair/straight.grey.png');
+  straightCutPink = loadImage('./assets/images/Hair/straight.pink.png');
+  straightCutRed = loadImage('./assets/images/Hair/straight.red.png');
+  straightCutUmber = loadImage('./assets/images/Hair/straight.umber.png');
+
+  wavyBlack = loadImage('./assets/images/Hair/wavy.black.png');
+  wavyBlonde = loadImage('./assets/images/Hair/wavy.blonde.png');
+  wavyBlue = loadImage('./assets/images/Hair/wavy.blue.png');
+  wavyBrunette = loadImage('./assets/images/Hair/wavy.brunette.png');
+  wavyDirty = loadImage('./assets/images/Hair/wavy.dirty.png');
+  wavyGinger = loadImage('./assets/images/Hair/wavy.ginger.png');
+  wavyGrey = loadImage('./assets/images/Hair/wavy.grey.png');
+  wavyPink = loadImage('./assets/images/Hair/wavy.pink.png');
+  wavyRed = loadImage('./assets/images/Hair/wavy.red.png');
+  wavyUmber = loadImage('./assets/images/Hair/wavy.umber.png');
+
+  black1 = loadImage('./assets/images/Strands/1.black.png');
+  blonde1 = loadImage('./assets/images/Strands/1.blonde.png');
+  brunette1 = loadImage('./assets/images/Strands/1.brunette.png');
+  dirty1 = loadImage('./assets/images/Strands/1.dirty.png');
+  ginger1 = loadImage('./assets/images/Strands/1.ginger.png');
+  grey1 = loadImage('./assets/images/Strands/1.grey.png');
+  pink1 = loadImage('./assets/images/Strands/1.pink.png');
+  red1 = loadImage('./assets/images/Strands/1.red.png');
+  umber1 = loadImage('./assets/images/Strands/1.umber.png');
+  blue1 = loadImage('./assets/images/Strands/1.blue.png');
+
+  black2 = loadImage('./assets/images/Strands/2.black.png');
+  blonde2 = loadImage('./assets/images/Strands/2.blonde.png');
+  brunette2 = loadImage('./assets/images/Strands/2.brunette.png');
+  dirty2 = loadImage('./assets/images/Strands/2.dirty.png');
+  ginger2 = loadImage('./assets/images/Strands/2.ginger.png');
+  grey2 = loadImage('./assets/images/Strands/2.grey.png');
+  pink2 = loadImage('./assets/images/Strands/2.pink.png');
+  umber2 = loadImage('./assets/images/Strands/2.umber.png');
+  red2 = loadImage('./assets/images/Strands/2.red.png');
+  blue2 = loadImage('./assets/images/Strands/2.blue.png');
+
   click = new Audio("./assets/sounds/ui-pop.mp3");
   pick = new Audio("./assets/sounds/ui-pick.mp3");
 }
@@ -699,7 +968,7 @@ function setup() {
 }
 
 function draw() {
-    background(175, 183, 231);
+  background(175, 183, 231);
 
     if (whichscreen === "start") {
         startScreen()
@@ -713,6 +982,7 @@ function draw() {
     else {
         productScreen()
     }
+  //image(frame, 0, 0);
 }
 
 function startScreen() {
@@ -753,9 +1023,12 @@ function gameScreen() {
     hair2File();
   }
 
-  drawHead();
   drawHair();
+  drawHead();
   drawFace();
+  drawBangs();
+  drawStrands();
+  drawGlasses();
 }
 
 function headFile() {
@@ -1055,15 +1328,26 @@ if (whichfile === "hair") {
   }
   for (let btn of hairSelectButtons) {
     if (btn.over()) {
-      pick.play();
+    pick.play();
+    hairSelectButtons.forEach(b => b.reset());
+    btn.clicked();
+
+      if (btn === selectHairNone) {
+        selectedHair = "none";
+      }
+      else if (btn === selectBraids) { selectedHair = "braids"; }
+      else if (btn === selectBuns) { selectedHair = "buns"; }
+      else if (btn === selectCurlyCut) { selectedHair = "curlyCut"; }
+      else if (btn === selectLongPony) { selectedHair = "longPony"; }
+      else if (btn === selectPigtails) { selectedHair = "pigtails"; }
+      else if (btn === selectPony) { selectedHair = "pony"; }
+      else if (btn === selectPoofy) { selectedHair = "poofy"; }
+      else if (btn === selectShortCut) { selectedHair = "shortCut"; }
+      else if (btn === selectStraightCut) { selectedHair = "straightCut"; }
+      else if (btn === selectWavy) { selectedHair = "wavy"; }
     
-
-      // Reset all buttons first
-      hairSelectButtons.forEach(b => b.reset());
-
-      // Lock the clicked one
-      btn.clicked();
-}
+    return;
+    }
     }
 }
     // HAIR2 TAB SELECT BUTTONS
@@ -1071,16 +1355,16 @@ if (whichfile === "hair2") {
   for (let btn of strandSelectButtons) {
     if (btn.over()) {
       pick.play();
-      
+    strandSelectButtons.forEach(b => b.reset());
+    btn.clicked();
 
-      // Reset all buttons first
-      strandSelectButtons.forEach(b => b.reset());
+    if (btn === selectStrandsNone) {
+      selectedStrands = "none";
+    }
+    else if (btn === selectStrands1) { selectedStrands = "1"; }
+    else if (btn === selectStrands2) { selectedStrands = "2"; }
 
-      // Lock the clicked one
-      btn.clicked();
-
-      console.log("hair2 tab: Select pressed");
-      return; 
+    return;
     }
   }
   for (let btn of dyeSelectButtons) {
@@ -1150,6 +1434,26 @@ if (whichfile === "hair2") {
     }
   }
 
+function drawGlasses() {
+   let img;
+  
+  if (selectedDetail !== "none") {
+    if (selectedDetail === "sharp") {
+      if (selectedSkin === "peach") img = sharpPeach;
+      if (selectedSkin === "tan") img = sharpTan;
+      if (selectedSkin === "brown") img = sharpBrown;
+      if (selectedSkin === "dark") img = sharpDark;
+    }
+    else if (selectedDetail === "round") {
+      if (selectedSkin === "peach") img = roundPeach;
+      if (selectedSkin === "tan") img = roundTan;
+      if (selectedSkin === "brown") img = roundBrown;
+      if (selectedSkin === "dark") img = roundDark;
+    }
+  }
+  if (img) image(img, 80, 228); 
+}
+
 function drawFace() {
   
   let imgD;
@@ -1172,19 +1476,6 @@ function drawFace() {
       if (selectedSkin === "tan") imgD = frecklesTan;
       if (selectedSkin === "brown") imgD = frecklesBrown;
       if (selectedSkin === "dark") imgD = frecklesDark;
-    }
-    else if (selectedDetail === "sharp") {
-      if (selectedSkin === "peach") imgD = sharpPeach;
-      if (selectedSkin === "tan") imgD = sharpTan;
-      if (selectedSkin === "brown") imgD = sharpBrown;
-      if (selectedSkin === "dark") imgD = sharpDark;
-    }
-    else if (selectedDetail === "round") {
-      if (selectedSkin === "peach") imgD = roundPeach;
-      if (selectedSkin === "tan") imgD = roundTan;
-      if (selectedSkin === "brown") imgD = roundBrown;
-      if (selectedSkin === "dark") imgD = roundDark;
-
     }
   }
 
@@ -1271,6 +1562,274 @@ function drawHead() {
 }
 
 function drawHair() {
+  let img;
+  let hyOffset = 0;
+  let hxOffset = 0;
+  
+  if (selectedDye === "brunette" || selectedDye === "dirty") {
+    hyOffset = 8;
+  }
+  if (selectedHair === "braids") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+      hyOffset = 40;
+    }
+    else {
+      hyOffset = 32;
+    }
+    }
+    if (selectedHair === "poofy") {
+      hxOffset = 8;
+    }
+  if (selectedHair === "buns") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+      hyOffset = -80;
+    }
+    else {
+      hyOffset = -88;
+    }
+    }
+  if (selectedHair === "straightCut") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+      hyOffset = 32;
+    }
+    else {
+      hyOffset = 24;
+    }
+      }
+  if (selectedHair === "wavy") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+      hyOffset = 24;
+    }
+    else {
+      hyOffset = 16;
+    }
+    }
+  if (selectedHair === "curlyCut") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+      hyOffset = 40;
+      hxOffset = -16;
+
+    }
+    else {
+      hyOffset = 32;
+      hxOffset = -16;
+    }
+  }
+  if (selectedHair === "pony") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+      hyOffset = -96;
+      hxOffset = -72;
+    }
+    else {
+      hyOffset = -104;
+      hxOffset = -72;
+    }
+  }
+  if (selectedHair === "pigtails") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+       hyOffset = -72;
+    }
+      else {
+        hyOffset = -80;
+      }
+    }
+  if (selectedHair === "longPony") {
+    if (selectedDye === "brunette" || selectedDye === "dirty") {
+      hyOffset = -72;
+      hxOffset = -80;
+    }
+    else {
+      hyOffset = -80;
+      hxOffset = -80;
+    }
+  }
+
+  if (selectedBangs === "headscarf") {
+      selectedHair = "none";
+    }
+  if (selectedBangs === "none") {
+      selectedHair = "none";
+  }
+
+  if (selectedHair === "braids") {
+    if (selectedDye === "black") img = braidsBlack;
+    if (selectedDye === "blonde") img = braidsBlonde;
+    if (selectedDye === "blue") img = braidsBlue;
+    if (selectedDye === "brunette") img = braidsBrunette;
+    if (selectedDye === "dirty") img = braidsDirty;
+    if (selectedDye === "ginger") img = braidsGinger;
+    if (selectedDye === "grey") img = braidsGrey;
+    if (selectedDye === "pink") img = braidsPink;
+    if (selectedDye === "red") img = braidsRed;
+    if (selectedDye === "umber") img = braidsUmber;
+  }
+  if (selectedHair === "buns") {
+    if (selectedDye === "black") img = bunsBlack;
+    if (selectedDye === "blonde") img = bunsBlonde;
+    if (selectedDye === "blue") img = bunsBlue;
+    if (selectedDye === "brunette") img = bunsBrunette;
+    if (selectedDye === "dirty") img = bunsDirty;
+    if (selectedDye === "ginger") img = bunsGinger;
+    if (selectedDye === "grey") img = bunsGrey;
+    if (selectedDye === "pink") img = bunsPink;
+    if (selectedDye === "red") img = bunsRed;
+    if (selectedDye === "umber") img = bunsUmber;
+  }
+  if (selectedHair === "curlyCut") {
+    if (selectedDye === "black") img = curlyCutBlack;
+    if (selectedDye === "blonde") img = curlyCutBlonde;
+    if (selectedDye === "blue") img = curlyCutBlue;
+    if (selectedDye === "brunette") img = curlyCutBrunette;
+    if (selectedDye === "dirty") img = curlyCutDirty;
+    if (selectedDye === "ginger") img = curlyCutGinger;
+    if (selectedDye === "grey") img = curlyCutGrey;
+    if (selectedDye === "pink") img = curlyCutPink;
+    if (selectedDye === "red") img = curlyCutRed;
+    if (selectedDye === "umber") img = curlyCutUmber;
+  }
+  if (selectedHair === "longPony") {
+    if (selectedDye === "black") img = longPonyBlack;
+    if (selectedDye === "blonde") img = longPonyBlonde;
+    if (selectedDye === "blue") img = longPonyBlue;
+    if (selectedDye === "brunette") img = longPonyBrunette;
+    if (selectedDye === "dirty") img = longPonyDirty;
+    if (selectedDye === "ginger") img = longPonyGinger;
+    if (selectedDye === "grey") img = longPonyGrey;
+    if (selectedDye === "pink") img = longPonyPink;
+    if (selectedDye === "red") img = longPonyRed;
+    if (selectedDye === "umber") img = longPonyUmber;
+  }
+  if (selectedHair === "pigtails") {
+    if (selectedDye === "black") img = pigtailsBlack;
+    if (selectedDye === "blonde") img = pigtailsBlonde;
+    if (selectedDye === "blue") img = pigtailsBlue;
+    if (selectedDye === "brunette") img = pigtailsBrunette;
+    if (selectedDye === "dirty") img = pigtailsDirty;
+    if (selectedDye === "ginger") img = pigtailsGinger;
+    if (selectedDye === "grey") img = pigtailsGrey;
+    if (selectedDye === "pink") img = pigtailsPink;
+    if (selectedDye === "red") img = pigtailsRed;
+    if (selectedDye === "umber") img = pigtailsUmber;
+  }
+  if (selectedHair === "pony") {
+    if (selectedDye === "black") img = ponyBlack;
+    if (selectedDye === "blonde") img = ponyBlonde;
+    if (selectedDye === "blue") img = ponyBlue;
+    if (selectedDye === "brunette") img = ponyBrunette;
+    if (selectedDye === "dirty") img = ponyDirty;
+    if (selectedDye === "ginger") img = ponyGinger;
+    if (selectedDye === "grey") img = ponyGrey;
+    if (selectedDye === "pink") img = ponyPink;
+    if (selectedDye === "red") img = ponyRed;
+    if (selectedDye === "umber") img = ponyUmber;
+  }
+  if (selectedHair === "poofy") {
+    if (selectedDye === "black") img = poofyBlack;
+    if (selectedDye === "blonde") img = poofyBlonde;
+    if (selectedDye === "blue") img = poofyBlue;
+    if (selectedDye === "brunette") img = poofyBrunette;
+    if (selectedDye === "dirty") img = poofyDirty;
+    if (selectedDye === "ginger") img = poofyGinger;
+    if (selectedDye === "grey") img = poofyGrey;
+    if (selectedDye === "pink") img = poofyPink;
+    if (selectedDye === "red") img = poofyRed;
+    if (selectedDye === "umber") img = poofyUmber;
+  }
+  if (selectedHair === "shortCut") {
+    if (selectedDye === "black") img = shortCutBlack;
+    if (selectedDye === "blonde") img = shortCutBlonde;
+    if (selectedDye === "blue") img = shortCutBlue;
+    if (selectedDye === "brunette") img = shortCutBrunette;
+    if (selectedDye === "dirty") img = shortCutDirty;
+    if (selectedDye === "ginger") img = shortCutGinger;
+    if (selectedDye === "grey") img = shortCutGrey;
+    if (selectedDye === "pink") img = shortCutPink;
+    if (selectedDye === "red") img = shortCutRed;
+    if (selectedDye === "umber") img = shortCutUmber;
+  }
+  if (selectedHair === "straightCut") {
+    if (selectedDye === "black") img = straightCutBlack;
+    if (selectedDye === "blonde") img = straightCutBlonde;
+    if (selectedDye === "blue") img = straightCutBlue;
+    if (selectedDye === "brunette") img = straightCutBrunette;
+    if (selectedDye === "dirty") img = straightCutDirty;
+    if (selectedDye === "ginger") img = straightCutGinger;
+    if (selectedDye === "grey") img = straightCutGrey;
+    if (selectedDye === "pink") img = straightCutPink;
+    if (selectedDye === "red") img = straightCutRed;
+    if (selectedDye === "umber") img = straightCutUmber;
+  }
+  if (selectedHair === "wavy") {
+    if (selectedDye === "black") img = wavyBlack;
+    if (selectedDye === "blonde") img = wavyBlonde;
+    if (selectedDye === "blue") img = wavyBlue;
+    if (selectedDye === "brunette") img = wavyBrunette;
+    if (selectedDye === "dirty") img = wavyDirty;
+    if (selectedDye === "ginger") img = wavyGinger;
+    if (selectedDye === "grey") img = wavyGrey;
+    if (selectedDye === "pink") img = wavyPink;
+    if (selectedDye === "red") img = wavyRed;
+    if (selectedDye === "umber") img = wavyUmber;
+  }
+
+  if (img) image(img, 16 + hxOffset, 236 + hyOffset); 
+}
+
+function drawStrands() {
+  let imgS;
+  let img;
+  let xOffset = 0;
+  let yOffset = 0;
+  let syOffset = 0;
+
+  if (selectedDye === "pink" || selectedDye === "red" || selectedDye === "blue" || selectedDye === "ginger" || selectedDye === "blonde" || selectedDye === "grey") {
+    syOffset = 8;
+  }
+  if (selectedBangs === "bigFrizz") {
+  yOffset = -40;
+  }
+  if (selectedBangs === "curly" || selectedBangs === "frizz" || selectedBangs === "braidsBack" && selectedStrands === "2") {
+    yOffset = -8;
+  }
+  if (selectedBangs === "shaved" && selectedStrands === "2") {
+    yOffset = 8;
+  }
+  if (selectedBangs === "headscarf") {
+      selectedStrands = "none";
+  }
+  
+  if (selectedStrands === "1") {
+    if (selectedDye === "black") imgS = black1;
+    if (selectedDye === "blonde") imgS = blonde1;
+    if (selectedDye === "blue") imgS = blue1;
+    if (selectedDye === "brunette") imgS = brunette1;
+    if (selectedDye === "dirty") imgS = dirty1;
+    if (selectedDye === "ginger") imgS = ginger1;
+    if (selectedDye === "grey") imgS = grey1;
+    if (selectedDye === "pink") imgS = pink1;
+    if (selectedDye === "red") imgS = red1;
+    if (selectedDye === "umber") imgS = umber1;
+  }
+if (selectedStrands === "2") {
+    if (selectedDye === "black") img = black2;
+    if (selectedDye === "blonde") img = blonde2;
+    if (selectedDye === "blue") img = blue2;
+    if (selectedDye === "brunette") img = brunette2;
+    if (selectedDye === "dirty") img = dirty2;
+    if (selectedDye === "ginger") img = ginger2;
+    if (selectedDye === "grey") img = grey2;
+    if (selectedDye === "pink") img = pink2;
+    if (selectedDye === "red") img = red2;
+    if (selectedDye === "umber") img = umber2;
+}
+  
+  if (imgS) image(imgS, 144 + xOffset, 148 + yOffset + syOffset);
+  if (img) image(img, 144 + xOffset, 148 + yOffset + syOffset);
+}
+
+
+function drawBangs() {
+  
   let img;
   let xOffset = 0;
   let yOffset = 0;
@@ -1494,5 +2053,5 @@ function drawHair() {
     if (selectedDye === "umber") img = sideUmber;
   }
 
-  if (img) image(img, 80 + xOffset, 172 + yOffset);   // draw final result
+  if (img) image(img, 80 + xOffset, 172 + yOffset);
 }
