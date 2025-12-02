@@ -8,8 +8,8 @@
 
 "use strict";
 
-var whichscreen = "game";
-var whichfile = "hair";
+var whichscreen = "start";
+var whichfile = "head";
 
 let selectedHeadShape = "reg"; 
 let selectedSkin = "peach";
