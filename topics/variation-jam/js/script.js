@@ -509,7 +509,7 @@ function preload() {
 
   frame = loadImage('./assets/images/portrait.png');
 
-  eyes = loadImage('./assets/images/eyes.png');
+  eyes = loadImage('./assets/images/eyes.2.png');
 
   doneButtonUp = loadImage('./assets/images/done-button-up.png');
   doneButtonDown = loadImage('./assets/images/done-button-down.png'); 
