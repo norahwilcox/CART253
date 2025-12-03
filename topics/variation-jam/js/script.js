@@ -495,8 +495,8 @@ const hair2Tab = {
 };
 
 function preload() {
-  startButtonUp = loadImage('./assets/images/start_button_up.png');
-  startButtonDown = loadImage('./assets/images/start_button_down.png');
+  startButtonUp = loadImage('./assets/images/start-button-up.png');
+  startButtonDown = loadImage('./assets/images/start-button-down.png');
   title = loadImage('./assets/images/Title_screen.png');
   namez = loadImage('./assets/images/name.png');
 
