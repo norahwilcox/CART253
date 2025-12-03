@@ -2,7 +2,7 @@
  * Variation Jam!
  * Norah Wilcox
  * 
- * A pixel art character creator
+ * A pixel art character creator!
  */
 
 "use strict";
