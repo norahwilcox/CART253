@@ -25,7 +25,12 @@ let selectedDye = "black";
 let start;
 let startButtonUp;
 let startButtonDown;
+
 let frame;
+
+let done;
+let doneButtonUp;
+let doneButtonDown;
 
 let headSelectButtons = [];
 let skinSelectButtons = [];
@@ -459,6 +464,7 @@ let blue2;
 
 let click;
 let pick;
+let allDone;
 
 const headTab = {
   x: 460,
@@ -489,8 +495,8 @@ const hair2Tab = {
 };
 
 function preload() {
-  startButtonUp = loadImage('./assets/images/Start_button_up.png');
-  startButtonDown = loadImage('./assets/images/Start_button_down.png');
+  startButtonUp = loadImage('./assets/images/start_button_up.png');
+  startButtonDown = loadImage('./assets/images/start_button_down.png');
   title = loadImage('./assets/images/Title_screen.png');
   namez = loadImage('./assets/images/name.png');
 
@@ -501,9 +507,12 @@ function preload() {
   openTab = loadImage('./assets/images/file.tab.light.png');
   closedTab = loadImage('./assets/images/file.tab.dark.png');
 
-  frame = loadImage('./assets/images/frame.png');
+  frame = loadImage('./assets/images/portrait.png');
 
   eyes = loadImage('./assets/images/eyes.png');
+
+  doneButtonUp = loadImage('./assets/images/done-button-up.png');
+  doneButtonDown = loadImage('./assets/images/done-button-down.png'); 
 
   longBrown = loadImage('./assets/images/Heads/long.brown.png');
   longDark = loadImage('./assets/images/Heads/long.dark.png');
@@ -845,11 +854,14 @@ function preload() {
 
   click = new Audio("./assets/sounds/ui-pop.mp3");
   pick = new Audio("./assets/sounds/ui-pick.mp3");
+  allDone = new Audio("./assets/sounds/ui-done.mp3");
 }
 
 function setup() {
   createCanvas(1200, 800);
-  start = new Start(445, 520, startButtonUp);
+  start = new Start(445, 500, startButtonUp);
+  done = new Done(950, 530, doneButtonUp);
+
 
   /**
    * HEAD
@@ -879,11 +891,11 @@ function setup() {
 
   // mouths
   selectBuck = new Select(700, 230, selectButtonUp, selectButtonDown);
+  selectBuck.selected = true;
   selectLipsSmile = new Select(700, 290, selectButtonUp, selectButtonDown);
   selectLips = new Select(700, 350, selectButtonUp, selectButtonDown);
   selectNeutral = new Select(700, 410, selectButtonUp, selectButtonDown);
   selectSmile = new Select(700, 470, selectButtonUp, selectButtonDown);
-  selectSmile.selected = true;
   selectTeeth = new Select(700, 530, selectButtonUp, selectButtonDown);
 
   // details
@@ -914,7 +926,7 @@ function setup() {
   selectShort = new Select(560, 530, selectButtonUp, selectButtonDown);  
   selectSide = new Select(560, 590, selectButtonUp, selectButtonDown);
   selectBangsNone = new Select(620, 230, selectButtonUp, selectButtonDown);  
-  selectBangsNone.selected = true;
+  selectCurly.selected = true;
 
   // hair
   selectBraids = new Select(750, 230, selectButtonUp, selectButtonDown);
@@ -928,7 +940,7 @@ function setup() {
   selectStraightCut = new Select(810, 290, selectButtonUp, selectButtonDown);
   selectWavy = new Select(810, 350, selectButtonUp, selectButtonDown);
   selectHairNone = new Select(810, 410, selectButtonUp, selectButtonDown);
-  selectHairNone.selected = true;
+  selectShortCut.selected = true;
 
   /**
    * HAIR2
@@ -937,7 +949,7 @@ function setup() {
   selectStrands1 = new Select(500, 230, selectButtonUp, selectButtonDown);
   selectStrands2  = new Select(500, 290, selectButtonUp, selectButtonDown);
   selectStrandsNone = new Select(500, 350, selectButtonUp, selectButtonDown);
-  selectStrandsNone.selected = true;
+  selectStrands1.selected = true;
 
   // dye 
   selectBlack = new Select(700, 230, selectButtonUp, selectButtonDown);
@@ -967,7 +979,7 @@ function setup() {
 }
 
 function draw() {
-  background(175, 183, 231);
+  background(255, 255, 255);
 
     if (whichscreen === "start") {
         startScreen()
@@ -981,16 +993,16 @@ function draw() {
     else {
         productScreen()
     }
-  //image(frame, 0, 0);
 }
 
 function startScreen() {
-  image(title, 360, 120);
-  image(namez, 370, 180);
+  image(title, 360, 90);
+  image(namez, 435, 240);
   start.display();
 }
 
 function gameScreen() {
+  image(frame, -80, 20);
   noStroke();
   noFill();
   rect(headTab.x, headTab.y, headTab.w, headTab.h);
@@ -1007,7 +1019,8 @@ function gameScreen() {
   noFill();
   rect(hair2Tab.x, hair2Tab.y, hair2Tab.w, hair2Tab.h);
 
-  image(file, 430, 150);
+  image(file, 450, 160);
+
 
   if (whichfile === "head") {
     headFile();
@@ -1021,6 +1034,7 @@ function gameScreen() {
     else {
     hair2File();
   }
+done.display();
 
   drawHair();
   drawHead();
@@ -1031,10 +1045,10 @@ function gameScreen() {
 }
 
 function headFile() {
-  image(openTab, 460, 110);
-  image(closedTab, 617, 110);
-  image(closedTab, 774, 110);
-  image(closedTab, 931, 110);
+  image(openTab, 480, 120);
+  image(closedTab, 637, 120);
+  image(closedTab, 794, 120);
+  image(closedTab, 951, 120);
   
   selectLong.display();
   selectReg.display();
@@ -1048,10 +1062,10 @@ function headFile() {
 }
 
 function faceFile() {
-  image(closedTab, 460, 110);
-  image(openTab, 617, 110);
-  image(closedTab, 774, 110);
-  image(closedTab, 931, 110);
+  image(closedTab, 480, 120);
+  image(openTab, 637, 120);
+  image(closedTab, 794, 120);
+  image(closedTab, 951, 120);
 
   selectBent.display();
   selectButton.display();
@@ -1074,10 +1088,10 @@ function faceFile() {
 }
 
 function hairFile() {
-  image(closedTab, 460, 110);
-  image(closedTab, 617, 110);
-  image(openTab, 774, 110);
-  image(closedTab, 931, 110);
+  image(closedTab, 480, 120);
+  image(closedTab, 637, 120);
+  image(openTab, 794, 120);
+  image(closedTab, 951, 120);
 
   selectBackBraids.display(); 
   selectBigFrizz.display();
@@ -1109,10 +1123,10 @@ function hairFile() {
 }
 
 function hair2File() {
-  image(closedTab, 460, 110);
-  image(closedTab, 617, 110);
-  image(closedTab, 774, 110);
-  image(openTab, 931, 110);
+  image(closedTab, 480, 120);
+  image(closedTab, 637, 120);
+  image(closedTab, 794, 120);
+  image(openTab, 951, 120);
 
   selectStrands1.display();
   selectStrands2.display();
@@ -1129,6 +1143,16 @@ function hair2File() {
   selectUmber.display();
 }
 
+function productScreen() {
+  image(frame, 240, 20);
+
+  drawHair();
+  drawHead();
+  drawFace();
+  drawBangs();
+  drawStrands();
+  drawGlasses();
+}
 
 class Start {
   constructor(inX, inY, inImg) {
@@ -1152,6 +1176,35 @@ class Start {
   over() {
     if (mouseX > this.x && mouseX < this.x + this.startButtonUp.width && mouseY >
         this.y && mouseY < this.y + this.startButtonUp.height) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+class Done {
+  constructor(inX, inY, inImg) {
+    this.x = inX;
+    this.y = inY;
+    this.doneButtonUp = inImg;
+  }
+  
+  display() {
+    
+    // tint the image on mouse hover
+    if (this.over()) {
+      image(doneButtonDown, this.x, this.y);
+    } else {
+      image(this.doneButtonUp, this.x, this.y);
+    }
+  }
+  
+  // over automatically matches the width & height of the image read from the file
+  // see this.img.width and this.img.height below
+  over() {
+    if (mouseX > this.x && mouseX < this.x + this.doneButtonUp.width && mouseY >
+        this.y && mouseY < this.y + this.doneButtonUp.height) {
       return true;
     } else {
       return false;
@@ -1213,6 +1266,10 @@ function mousePressed() {
     if (whichscreen === "start" && start.over()) {
       whichscreen = "game";
       click.play();
+    }
+  if (whichscreen === "game" && done.over()) {
+      whichscreen = "product";
+      allDone.play();
     }
    // GAME SCREEN TABS
   if (whichscreen === "game") {
@@ -1434,8 +1491,13 @@ if (whichfile === "hair2") {
   }
 
 function drawGlasses() {
-   let img;
+  let img;
+  let xOffset = 0;
   
+    if (whichscreen === "product") {
+    xOffset = 320;
+  }
+
   if (selectedDetail !== "none") {
     if (selectedDetail === "sharp") {
       if (selectedSkin === "peach") img = sharpPeach;
@@ -1450,7 +1512,7 @@ function drawGlasses() {
       if (selectedSkin === "dark") img = roundDark;
     }
   }
-  if (img) image(img, 80, 228); 
+  if (img) image(img, 100 + xOffset, 288); 
 }
 
 function drawFace() {
@@ -1487,10 +1549,15 @@ function drawFace() {
 
   let imgM;
   let oOffset = 0;
+  let xOffset = 0;
 
   // adjust based on style
   if (selectedMouth === "neutral") {
     oOffset = -8;
+  }
+
+   if (whichscreen === "product") {
+    xOffset = 320;
   }
   
   if (selectedMouth === "buck") imgM = buck;
@@ -1515,17 +1582,22 @@ function drawFace() {
     if (selectedMouth === "smile") imgM = smile;
     if (selectedMouth === "teeth") imgM = teeth;
 
-  if (imgD) image(imgD, 80, 228);   // draw final result 
-  if (imgM) image(imgM, 80, 228 + oOffset);   // draw final result 
-  if (imgN) image(imgN, 80, 228);   // draw final result 
-  image(eyes, 80, 228);
+  if (imgD) image(imgD, 100 + xOffset, 288);   // draw final result 
+  if (imgM) image(imgM, 100 + xOffset, 288 + oOffset);   // draw final result 
+  if (imgN) image(imgN, 100 + xOffset, 288);   // draw final result 
+  image(eyes, 100 + xOffset, 288);
 }
 
 
 function drawHead() {
   let img;
   let Offset = 0;
+  let xOffset = 0;
   // adjust based on style
+
+   if (whichscreen === "product") {
+    xOffset = 320;
+  }
   if (selectedHeadShape === "long") {
     Offset = 8;
   }
@@ -1557,13 +1629,17 @@ function drawHead() {
     if (selectedSkin === "dark") img = wideDark;
   }
 
-  if (img) image(img, 80, 220 + Offset);   // draw final result
+  if (img) image(img, 100 + xOffset, 280 + Offset);   // 80 , 220 // x = +20 y = +60
 }
 
 function drawHair() {
   let img;
   let hyOffset = 0;
   let hxOffset = 0;
+
+   if (whichscreen === "product") {
+    hxOffset = 320;
+  }
   
   if (selectedDye === "brunette" || selectedDye === "dirty") {
     hyOffset = 8;
@@ -1771,7 +1847,7 @@ function drawHair() {
     if (selectedDye === "umber") img = wavyUmber;
   }
 
-  if (img) image(img, 16 + hxOffset, 236 + hyOffset); 
+  if (img) image(img, 36 + hxOffset, 296 + hyOffset); 
 }
 
 function drawStrands() {
@@ -1780,6 +1856,10 @@ function drawStrands() {
   let xOffset = 0;
   let yOffset = 0;
   let syOffset = 0;
+
+   if (whichscreen === "product") {
+    xOffset = 320;
+  }
 
   if (selectedDye === "pink" || selectedDye === "red" || selectedDye === "blue" || selectedDye === "ginger" || selectedDye === "blonde" || selectedDye === "grey") {
     syOffset = 8;
@@ -1822,8 +1902,8 @@ if (selectedStrands === "2") {
     if (selectedDye === "umber") img = umber2;
 }
   
-  if (imgS) image(imgS, 144 + xOffset, 148 + yOffset + syOffset);
-  if (img) image(img, 144 + xOffset, 148 + yOffset + syOffset);
+  if (imgS) image(imgS, 164 + xOffset, 208 + yOffset + syOffset);
+  if (img) image(img, 164 + xOffset, 208 + yOffset + syOffset);
 }
 
 
@@ -1832,6 +1912,10 @@ function drawBangs() {
   let img;
   let xOffset = 0;
   let yOffset = 0;
+
+  if (whichscreen === "product") {
+    xOffset = 320;
+  }
 
   if (selectedBangs === "bowl") {
     yOffset = -8;
@@ -2052,5 +2136,6 @@ function drawBangs() {
     if (selectedDye === "umber") img = sideUmber;
   }
 
-  if (img) image(img, 80 + xOffset, 172 + yOffset);
+  if (img) image(img, 100 + xOffset, 232 + yOffset);
+
 }
