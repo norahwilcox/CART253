@@ -1,9 +1,8 @@
 /**
- * Variation Jam
+ * Variation Jam!
  * Norah Wilcox
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A pixel art character creator
  */
 
 "use strict";
