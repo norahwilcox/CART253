@@ -16,9 +16,9 @@ View this project online: https://norahwilcox.github.io/CART253/topics/variation
 
 > ![Image of the start screen](./assets/images/startscreen.jpeg)
 
-> ![Image of the game screen and a character being built](./assets/images/gamescreen.jpeg)
+> ![Image of the game screen and a character being built](./assets/images/productscreen.jpeg)
 
-> ![Image of the start product screen which the user's final character](./assets/images/productscreen.jpeg)
+> ![Image of the start product screen which the user's final character](./assets/images/gamescreen.jpeg)
 
 ## Attribution
 
