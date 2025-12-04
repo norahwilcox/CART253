@@ -1,35 +1,33 @@
 # TITLE OF PROJECT
 
-AUTHOR NAME
+Norah Wilcox
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+View this project online: https://norahwilcox.github.io/CART253/topics/variation-jam/
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+> Variation Jam! is a cute pixel art character creator inspired by childhood character customization games on flash.
 
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
+> The experience is controlled completely via the mouse, using left click to press buttons which customize your character however you please.
 
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
-
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+> Use the tabs above the folder to navigate which elements you would like to change and click the "done" button once your little guy is finished!
 
 ## Screenshot(s)
 
-This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
+> ![Image of the start screen](./assets/images/startscreen.jpeg)
 
-> ![Image of a clown face](./assets/images/clown.png)
+> ![Image of the game screen and a character being built](./assets/images/gamescreen.jpeg)
+
+> ![Image of the start product screen which the user's final character](./assets/images/productscreen.jepg)
 
 ## Attribution
 
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
-
 > - This project uses [p5.js](https://p5js.org).
-> - The clown image is a capture of the clown from the Apple emoji character set.
-> - The barking sound effect is "single dog bark 1" by crazymonke9 from freesound.org: https://freesound.org/people/crazymonke9/sounds/418107/
 
-## License
+> - This project's pixel art graphics were created using Aseprite (https://www.aseprite.org).
 
-This bit should include the license you want to apply to your work. For example:
+> - The "allDone" sound used is by Universfield from pixabay.com: https://pixabay.com/sound-effects/happy-message-ping-351298/
 
-> This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.
+> - The "click" sound used is by floraphonic from pixabay.com: https://pixabay.com/sound-effects/ui-pop-up-3-197888/
+
+> - The "pick" sound used is by 47313572 from pixabay.com: https://pixabay.com/sound-effects/ui-sounds-pack-3-11-359714/

@@ -7,6 +7,7 @@
 
 "use strict";
 
+// Setting which screen, file and face character features appear when the page loads
 var whichscreen = "start";
 var whichfile = "head";
 
@@ -22,16 +23,20 @@ let selectedHair = "shortCut";
 let selectedStrands = "1";
 let selectedDye = "black";
 
+// Declares start button
 let start;
 let startButtonUp;
 let startButtonDown;
 
+// Declares the notepad the character sits on
 let frame;
 
+// Declares the done button
 let done;
 let doneButtonUp;
 let doneButtonDown;
 
+// Declares the arrays for each type of select button
 let headSelectButtons = [];
 let skinSelectButtons = [];
 let noseSelectButtons = [];
@@ -42,20 +47,24 @@ let hairSelectButtons = [];
 let strandSelectButtons = [];
 let dyeSelectButtons = [];
 
+// Declares head shapes
 let selectLong;
 let selectReg;
 let selectWide;
 
+// Declares skin tones
 let selectPeach;
 let selectTan;
 let selectBrown;
 let selectDark;
 
+// Declares nose types 
 let selectBent;
 let selectButton;
 let selectFlat;
 let selectStraight;
 
+// Declares mouth types 
 let selectBuck;
 let selectLipsSmile;
 let selectLips;
@@ -63,6 +72,7 @@ let selectNeutral;
 let selectSmile;
 let selectTeeth;
 
+// Declares details
 let selectBags;
 let selectBlush;
 let selectFreckles;
@@ -70,6 +80,7 @@ let selectSharp;
 let selectRound;
 let selectDetailNone;
 
+// Declares select buttons for bangs 
 let selectBackBraids;
 let selectBigFrizz;
 let selectBowl;
@@ -86,6 +97,7 @@ let selectShort;
 let selectSide;
 let selectBangsNone;
 
+// Declares select buttons for hair 
 let selectBraids;
 let selectBuns;
 let selectCurlyCut;
@@ -98,10 +110,12 @@ let selectStraightCut;
 let selectWavy;
 let selectHairNone;
 
+// Declares select buttons for strands 
 let selectStrands1;
 let selectStrands2;
 let selectStrandsNone;
 
+// Declares select buttons for hair colour 
 let selectBlack;
 let selectBlonde;
 let selectBrunette;
@@ -113,17 +127,21 @@ let selectPink;
 let selectRed;
 let selectUmber;
 
+// Declares select general buttons 
 let selectButtonUp;
 let selectButtonDown;
 
+// Declares visual elements for the title screen
 let title;
 let namez;
 let file;
 let openTab;
 let closedTab;
 
+// Declares the eyes (dont ever move)
 let eyes;
 
+// Declares the heads along with each skin colour
 let longBrown;
 let longDark;
 let longPeach;
@@ -137,11 +155,13 @@ let wideDark;
 let widePeach;
 let wideTan;
 
+// Declares noses
 let bent;
 let button;
 let flat;
 let straight;
 
+// Declares mouths
 let buck;
 let lipsSmilePeach;
 let lipsSmileTan;
@@ -155,6 +175,7 @@ let neutral;
 let smile;
 let teeth;
 
+// Declares details along with each skin type
 let bagsPeach;
 let bagsTan;
 let bagsBrown;
@@ -176,6 +197,7 @@ let roundTan;
 let roundBrown;
 let roundDark;
 
+// Declares each bangs type along with each hair colour 
 let bigFrizzBlack;
 let bigFrizzBlonde;
 let bigFrizzBlue;
@@ -186,7 +208,7 @@ let bigFrizzGrey;
 let bigFrizzPink;
 let bigFrizzRed;
 let bigFrizzUmber;
-
+// ...
 let bowlBlack;
 let bowlBlonde;
 let bowlBlue;
@@ -197,7 +219,7 @@ let bowlGrey;
 let bowlPink;
 let bowlRed;
 let bowlUmber;
-
+// ...
 let braidsBackBlack;
 let braidsBackBlonde;
 let braidsBackBlue;
@@ -208,7 +230,7 @@ let braidsBackGrey;
 let braidsBackPink;
 let braidsBackRed;
 let braidsBackUmber;
-
+// ...
 let curlyBlack;
 let curlyBlonde;
 let curlyBlue;
@@ -219,7 +241,7 @@ let curlyGrey;
 let curlyPink;
 let curlyRed;
 let curlyUmber;
-
+// ...
 let curtainBlack;
 let curtainBlonde;
 let curtainBlue;
@@ -230,7 +252,7 @@ let curtainGrey;
 let curtainPink;
 let curtainRed;
 let curtainUmber;
-
+// ...
 let fringeBlack;
 let fringeBlonde;
 let fringeBlue;
@@ -241,7 +263,7 @@ let fringeGrey;
 let fringePink;
 let fringeRed;
 let fringeUmber;
-
+// ...
 let frizzBlack;
 let frizzBlonde;
 let frizzBlue;
@@ -252,7 +274,7 @@ let frizzGrey;
 let frizzPink;
 let frizzRed;
 let frizzUmber;
-
+// ...
 let headscarfBlack;
 let headscarfBlonde;
 let headscarfBlue;
@@ -263,7 +285,7 @@ let headscarfGrey;
 let headscarfPink;
 let headscarfRed;
 let headscarfUmber;
-
+// ...
 let middleFringeBlack;
 let middleFringeBlonde;
 let middleFringeBlue;
@@ -274,7 +296,7 @@ let middleFringeGrey;
 let middleFringePink;
 let middleFringeRed;
 let middleFringeUmber;
-
+// ...
 let middleBlack;
 let middleBlonde;
 let middleBlue;
@@ -285,7 +307,7 @@ let middleGrey;
 let middlePink;
 let middleRed;
 let middleUmber;
-
+// ...
 let shavedBlack;
 let shavedBlonde;
 let shavedBlue;
@@ -296,7 +318,7 @@ let shavedGrey;
 let shavedPink;
 let shavedRed;
 let shavedUmber;
-
+// ...
 let shortCurlyBlack;
 let shortCurlyBlonde;
 let shortCurlyBlue;
@@ -307,7 +329,7 @@ let shortCurlyGrey;
 let shortCurlyPink;
 let shortCurlyRed;
 let shortCurlyUmber;
-
+// ...
 let shortBlack;
 let shortBlonde;
 let shortBlue;
@@ -318,7 +340,7 @@ let shortGrey;
 let shortPink;
 let shortRed;
 let shortUmber;
-
+// ...
 let sideBlack;
 let sideBlonde;
 let sideBlue;
@@ -330,6 +352,7 @@ let sidePink;
 let sideRed;
 let sideUmber;
 
+// Declares hair types along with each colour variation
 let braidsBlack;
 let braidsBlonde;
 let braidsBlue;
@@ -340,7 +363,7 @@ let braidsGrey;
 let braidsPink;
 let braidsRed;
 let braidsUmber;
-
+// ...
 let bunsBlack;
 let bunsBlonde;
 let bunsBlue;
@@ -351,7 +374,7 @@ let bunsGrey;
 let bunsPink;
 let bunsRed;
 let bunsUmber;
-
+// ...
 let curlyCutBlack;
 let curlyCutBlonde;
 let curlyCutBlue;
@@ -362,7 +385,7 @@ let curlyCutGrey;
 let curlyCutPink;
 let curlyCutRed;
 let curlyCutUmber;
-
+// ...
 let longPonyBlack;
 let longPonyBlonde;
 let longPonyBlue;
@@ -373,7 +396,7 @@ let longPonyGrey;
 let longPonyPink;
 let longPonyRed;
 let longPonyUmber;
-
+// ...
 let pigtailsBlack;
 let pigtailsBlonde;
 let pigtailsBlue;
@@ -384,7 +407,7 @@ let pigtailsGrey;
 let pigtailsPink;
 let pigtailsRed;
 let pigtailsUmber;
-
+// ...
 let ponyBlack;
 let ponyBlonde;
 let ponyBlue;
@@ -395,7 +418,7 @@ let ponyGrey;
 let ponyPink;
 let ponyRed;
 let ponyUmber;
-
+// ...
 let poofyBlack;
 let poofyBlonde;
 let poofyBlue;
@@ -406,7 +429,7 @@ let poofyGrey;
 let poofyPink;
 let poofyRed;
 let poofyUmber;
-
+// ...
 let shortCutBlack;
 let shortCutBlonde;
 let shortCutBlue;
@@ -417,7 +440,7 @@ let shortCutGrey;
 let shortCutPink;
 let shortCutRed;
 let shortCutUmber;
-
+// ...
 let straightCutBlack;
 let straightCutBlonde;
 let straightCutBlue;
@@ -428,7 +451,7 @@ let straightCutGrey;
 let straightCutPink;
 let straightCutRed;
 let straightCutUmber;
-
+// ...
 let wavyBlack;
 let wavyBlonde;
 let wavyBlue;
@@ -439,7 +462,7 @@ let wavyGrey;
 let wavyPink;
 let wavyRed;
 let wavyUmber;
-
+// ...
 let black1;
 let blonde1;
 let brunette1;
@@ -450,7 +473,7 @@ let pink1;
 let red1;
 let umber1;
 let blue1;
-
+// ...
 let black2;
 let blonde2;
 let brunette2;
@@ -462,10 +485,12 @@ let umber2;
 let red2;
 let blue2;
 
+// Declares audio
 let click;
 let pick;
 let allDone;
 
+// Declares the invisible tabs users can click to go to a different section
 const headTab = {
   x: 460,
   y: 110,
@@ -494,26 +519,35 @@ const hair2Tab = {
   h: 70
 };
 
+// Preloads all assets 
 function preload() {
+  // Start screen elements 
   startButtonUp = loadImage('./assets/images/start-button-up.png');
   startButtonDown = loadImage('./assets/images/start-button-down.png');
   title = loadImage('./assets/images/Title_screen.png');
   namez = loadImage('./assets/images/name.png');
 
+  // select buttons
   selectButtonUp = loadImage('./assets/images/select-button-up.png');
   selectButtonDown = loadImage('./assets/images/select-button-down.png');
-  
+ 
+  // game screen elements 
   file = loadImage('./assets/images/file.png');
   openTab = loadImage('./assets/images/file.tab.light.png');
   closedTab = loadImage('./assets/images/file.tab.dark.png');
-
   frame = loadImage('./assets/images/portrait.png');
 
-  eyes = loadImage('./assets/images/eyes.2.png');
-
+  // done button
   doneButtonUp = loadImage('./assets/images/done-button-up.png');
   doneButtonDown = loadImage('./assets/images/done-button-down.png'); 
 
+  /**
+   * Character elements 
+   */
+  // loads the eyes
+  eyes = loadImage('./assets/images/eyes.2.png');
+
+  // loads the heads
   longBrown = loadImage('./assets/images/Heads/long.brown.png');
   longDark = loadImage('./assets/images/Heads/long.dark.png');
   longPeach = loadImage('./assets/images/Heads/long.peach.png');
@@ -527,11 +561,13 @@ function preload() {
   widePeach = loadImage('./assets/images/Heads/wide.peach.png');
   wideTan = loadImage('./assets/images/Heads/wide.tan.png');
 
+  // loads the noses
   bent = loadImage('./assets/images/Noses/bent.png');
   button = loadImage('./assets/images/Noses/button.png');
   flat = loadImage('./assets/images/Noses/flat.png');
   straight = loadImage('./assets/images/Noses/straight.png');
 
+  // loads the mouths
   buck = loadImage('./assets/images/Mouths/buck-teeth.png');
   lipsSmilePeach = loadImage('./assets/images/Mouths/lips-smile.peach.png');
   lipsSmileTan = loadImage('./assets/images/Mouths/lips-smile.tan.png');
@@ -545,6 +581,7 @@ function preload() {
   smile = loadImage('./assets/images/Mouths/smile.png');
   teeth = loadImage('./assets/images/Mouths/teeth.png');
 
+  // loads the details
   bagsPeach = loadImage('./assets/images/Details/bags.peach.png');
   bagsTan = loadImage('./assets/images/Details/bags.tan.png');
   bagsBrown = loadImage('./assets/images/Details/bags.brown.png');
@@ -566,6 +603,7 @@ function preload() {
   roundBrown = loadImage('./assets/images/Details/round.brown.png');
   roundDark = loadImage('./assets/images/Details/round.dark.png');  
   
+  // loads the bangs
   bigFrizzBlack = loadImage('./assets/images/Bangs/big-frizz.black.png');
   bigFrizzBlonde = loadImage('./assets/images/Bangs/big-frizz.blonde.png');
   bigFrizzBlue = loadImage('./assets/images/Bangs/big-frizz.blue.png');
@@ -576,7 +614,7 @@ function preload() {
   bigFrizzPink = loadImage('./assets/images/Bangs/big-frizz.pink.png');
   bigFrizzRed = loadImage('./assets/images/Bangs/big-frizz.red.png');
   bigFrizzUmber = loadImage('./assets/images/Bangs/big-frizz.umber.png');
-
+  // ...
   bowlBlack = loadImage('./assets/images/Bangs/bowl.black.png');
   bowlBlonde = loadImage('./assets/images/Bangs/bowl.blonde.png');
   bowlBlue = loadImage('./assets/images/Bangs/bowl.blue.png');
@@ -587,7 +625,7 @@ function preload() {
   bowlPink = loadImage('./assets/images/Bangs/bowl.pink.png');
   bowlRed = loadImage('./assets/images/Bangs/bowl.red.png');
   bowlUmber = loadImage('./assets/images/Bangs/bowl.umber.png');
-
+  // ...
   braidsBackBlack = loadImage('./assets/images/Bangs/braids-back.black.png');
   braidsBackBlonde = loadImage('./assets/images/Bangs/braids-back.blonde.png');
   braidsBackBlue = loadImage('./assets/images/Bangs/braids-back.blue.png');
@@ -598,7 +636,7 @@ function preload() {
   braidsBackPink = loadImage('./assets/images/Bangs/braids-back.pink.png');
   braidsBackRed = loadImage('./assets/images/Bangs/braids-back.red.png');
   braidsBackUmber = loadImage('./assets/images/Bangs/braids-back.umber.png');
-
+  // ...
   curlyBlack = loadImage('./assets/images/Bangs/curly.black.png');
   curlyBlonde = loadImage('./assets/images/Bangs/curly.blonde.png');
   curlyBlue = loadImage('./assets/images/Bangs/curly.blue.png');
@@ -609,7 +647,7 @@ function preload() {
   curlyPink = loadImage('./assets/images/Bangs/curly.pink.png');
   curlyRed = loadImage('./assets/images/Bangs/curly.red.png');
   curlyUmber = loadImage('./assets/images/Bangs/curly.umber.png');
-
+  // ...
   curtainBlack = loadImage('./assets/images/Bangs/curtain.black.png');
   curtainBlonde = loadImage('./assets/images/Bangs/curtain.blonde.png');
   curtainBlue = loadImage('./assets/images/Bangs/curtain.blue.png');
@@ -620,7 +658,7 @@ function preload() {
   curtainPink = loadImage('./assets/images/Bangs/curtain.pink.png');
   curtainRed = loadImage('./assets/images/Bangs/curtain.red.png');
   curtainUmber = loadImage('./assets/images/Bangs/curtain.umber.png');
-
+  // ...
   fringeBlack = loadImage('./assets/images/Bangs/fringe.black.png');
   fringeBlonde = loadImage('./assets/images/Bangs/fringe.blonde.png');
   fringeBlue = loadImage('./assets/images/Bangs/fringe.blue.png');
@@ -631,7 +669,7 @@ function preload() {
   fringePink = loadImage('./assets/images/Bangs/fringe.pink.png');
   fringeRed = loadImage('./assets/images/Bangs/fringe.red.png');
   fringeUmber = loadImage('./assets/images/Bangs/fringe.umber.png');
-
+  // ...
   frizzBlack = loadImage('./assets/images/Bangs/frizz.black.png');
   frizzBlonde = loadImage('./assets/images/Bangs/frizz.blonde.png');
   frizzBlue = loadImage('./assets/images/Bangs/frizz.blue.png');
@@ -642,7 +680,7 @@ function preload() {
   frizzPink = loadImage('./assets/images/Bangs/frizz.pink.png');
   frizzRed = loadImage('./assets/images/Bangs/frizz.red.png');
   frizzUmber = loadImage('./assets/images/Bangs/frizz.umber.png');
-
+  // ...
   headscarfBlack = loadImage('./assets/images/Bangs/headscarf.black.png');
   headscarfBlonde = loadImage('./assets/images/Bangs/headscarf.blonde.png');
   headscarfBlue = loadImage('./assets/images/Bangs/headscarf.blue.png');
@@ -653,7 +691,7 @@ function preload() {
   headscarfPink = loadImage('./assets/images/Bangs/headscarf.pink.png');
   headscarfRed = loadImage('./assets/images/Bangs/headscarf.red.png');
   headscarfUmber = loadImage('./assets/images/Bangs/headscarf.umber.png');
-
+  // ...
   middleFringeBlack = loadImage('./assets/images/Bangs/middle-fringe.black.png');
   middleFringeBlonde = loadImage('./assets/images/Bangs/middle-fringe.blonde.png');
   middleFringeBlue = loadImage('./assets/images/Bangs/middle-fringe.blue.png');
@@ -664,7 +702,7 @@ function preload() {
   middleFringePink = loadImage('./assets/images/Bangs/middle-fringe.pink.png');
   middleFringeRed = loadImage('./assets/images/Bangs/middle-fringe.red.png');
   middleFringeUmber = loadImage('./assets/images/Bangs/middle-fringe.umber.png');
-
+  // ...
   middleBlack = loadImage('./assets/images/Bangs/middle.black.png');
   middleBlonde = loadImage('./assets/images/Bangs/middle.blonde.png');
   middleBlue = loadImage('./assets/images/Bangs/middle.blue.png');
@@ -675,7 +713,7 @@ function preload() {
   middlePink = loadImage('./assets/images/Bangs/middle.pink.png');
   middleRed = loadImage('./assets/images/Bangs/middle.red.png');
   middleUmber = loadImage('./assets/images/Bangs/middle.umber.png');
-
+  // ...
   shavedBlack = loadImage('./assets/images/Bangs/shaved.black.png');
   shavedBlonde = loadImage('./assets/images/Bangs/shaved.blonde.png');
   shavedBlue = loadImage('./assets/images/Bangs/shaved.blue.png');
@@ -686,7 +724,7 @@ function preload() {
   shavedPink = loadImage('./assets/images/Bangs/shaved.pink.png');
   shavedRed = loadImage('./assets/images/Bangs/shaved.red.png');
   shavedUmber = loadImage('./assets/images/Bangs/shaved.umber.png');
-
+  // ...
   shortCurlyBlack = loadImage('./assets/images/Bangs/short-curly.black.png');
   shortCurlyBlonde = loadImage('./assets/images/Bangs/short-curly.blonde.png');
   shortCurlyBlue = loadImage('./assets/images/Bangs/short-curly.blue.png');
@@ -697,7 +735,7 @@ function preload() {
   shortCurlyPink = loadImage('./assets/images/Bangs/short-curly.pink.png');
   shortCurlyRed = loadImage('./assets/images/Bangs/short-curly.red.png');
   shortCurlyUmber = loadImage('./assets/images/Bangs/short-curly.umber.png');
-
+  // ...
   shortBlack = loadImage('./assets/images/Bangs/short.black.png');
   shortBlonde = loadImage('./assets/images/Bangs/short.blonde.png');
   shortBlue = loadImage('./assets/images/Bangs/short.blue.png');
@@ -708,7 +746,7 @@ function preload() {
   shortPink = loadImage('./assets/images/Bangs/short.pink.png');
   shortRed = loadImage('./assets/images/Bangs/short.red.png');
   shortUmber = loadImage('./assets/images/Bangs/short.umber.png');
-
+  // ...
   sideBlack = loadImage('./assets/images/Bangs/side.black.png');
   sideBlonde = loadImage('./assets/images/Bangs/side.blonde.png');
   sideBlue = loadImage('./assets/images/Bangs/side.blue.png');
@@ -720,6 +758,7 @@ function preload() {
   sideRed = loadImage('./assets/images/Bangs/side.red.png');
   sideUmber = loadImage('./assets/images/Bangs/side.umber.png');
 
+  // Loads the hair
   braidsBlack = loadImage('./assets/images/Hair/braids.black.png');
   braidsBlonde = loadImage('./assets/images/Hair/braids.blonde.png');
   braidsBlue = loadImage('./assets/images/Hair/braids.blue.png');
@@ -730,7 +769,7 @@ function preload() {
   braidsPink = loadImage('./assets/images/Hair/braids.pink.png');
   braidsRed = loadImage('./assets/images/Hair/braids.red.png');
   braidsUmber = loadImage('./assets/images/Hair/braids.umber.png');
-
+  // ...
   bunsBlack = loadImage('./assets/images/Hair/buns.black.png');
   bunsBlonde = loadImage('./assets/images/Hair/buns.blonde.png');
   bunsBlue = loadImage('./assets/images/Hair/buns.blue.png');
@@ -741,7 +780,7 @@ function preload() {
   bunsPink = loadImage('./assets/images/Hair/buns.pink.png');
   bunsRed = loadImage('./assets/images/Hair/buns.red.png');
   bunsUmber = loadImage('./assets/images/Hair/buns.umber.png');
-
+  // ...
   curlyCutBlack = loadImage('./assets/images/Hair/curly-cut.black.png');
   curlyCutBlonde = loadImage('./assets/images/Hair/curly-cut.blonde.png');
   curlyCutBlue = loadImage('./assets/images/Hair/curly-cut.blue.png');
@@ -752,7 +791,7 @@ function preload() {
   curlyCutPink = loadImage('./assets/images/Hair/curly-cut.pink.png');
   curlyCutRed = loadImage('./assets/images/Hair/curly-cut.red.png');
   curlyCutUmber = loadImage('./assets/images/Hair/curly-cut.umber.png');
-
+  // ...
   longPonyBlack = loadImage('./assets/images/Hair/long-pony.black.png');
   longPonyBlonde = loadImage('./assets/images/Hair/long-pony.blonde.png');
   longPonyBlue = loadImage('./assets/images/Hair/long-pony.blue.png');
@@ -763,7 +802,7 @@ function preload() {
   longPonyPink = loadImage('./assets/images/Hair/long-pony.pink.png');
   longPonyRed = loadImage('./assets/images/Hair/long-pony.red.png');
   longPonyUmber = loadImage('./assets/images/Hair/long-pony.umber.png');
-
+  // ...
   pigtailsBlack = loadImage('./assets/images/Hair/pigtails.black.png');
   pigtailsBlonde = loadImage('./assets/images/Hair/pigtails.blonde.png');
   pigtailsBlue = loadImage('./assets/images/Hair/pigtails.blue.png');
@@ -774,7 +813,7 @@ function preload() {
   pigtailsPink = loadImage('./assets/images/Hair/pigtails.pink.png');
   pigtailsRed = loadImage('./assets/images/Hair/pigtails.red.png');
   pigtailsUmber = loadImage('./assets/images/Hair/pigtails.umber.png');
-
+  // ...
   ponyBlack = loadImage('./assets/images/Hair/pony.black.png');
   ponyBlonde = loadImage('./assets/images/Hair/pony.blonde.png');
   ponyBlue = loadImage('./assets/images/Hair/pony.blue.png');
@@ -785,7 +824,7 @@ function preload() {
   ponyPink = loadImage('./assets/images/Hair/pony.pink.png');
   ponyRed = loadImage('./assets/images/Hair/pony.red.png');
   ponyUmber = loadImage('./assets/images/Hair/pony.umber.png');
-
+  // ...
   poofyBlack = loadImage('./assets/images/Hair/poofy.black.png');
   poofyBlonde = loadImage('./assets/images/Hair/poofy.blonde.png');
   poofyBlue = loadImage('./assets/images/Hair/poofy.blue.png');
@@ -796,7 +835,7 @@ function preload() {
   poofyPink = loadImage('./assets/images/Hair/poofy.pink.png');
   poofyRed = loadImage('./assets/images/Hair/poofy.red.png');
   poofyUmber = loadImage('./assets/images/Hair/poofy.umber.png');
-
+  // ...
   shortCutBlack = loadImage('./assets/images/Hair/short-cut.black.png');
   shortCutBlonde = loadImage('./assets/images/Hair/short-cut.blonde.png');
   shortCutBlue = loadImage('./assets/images/Hair/short-cut.blue.png');
@@ -807,7 +846,7 @@ function preload() {
   shortCutPink = loadImage('./assets/images/Hair/short-cut.pink.png');
   shortCutRed = loadImage('./assets/images/Hair/short-cut.red.png');
   shortCutUmber = loadImage('./assets/images/Hair/short-cut.umber.png');
-
+  // ...
   straightCutBlack = loadImage('./assets/images/Hair/straight.black.png');
   straightCutBlonde = loadImage('./assets/images/Hair/straight.blonde.png');
   straightCutBlue = loadImage('./assets/images/Hair/straight.blue.png');
@@ -818,7 +857,7 @@ function preload() {
   straightCutPink = loadImage('./assets/images/Hair/straight.pink.png');
   straightCutRed = loadImage('./assets/images/Hair/straight.red.png');
   straightCutUmber = loadImage('./assets/images/Hair/straight.umber.png');
-
+  // ...
   wavyBlack = loadImage('./assets/images/Hair/wavy.black.png');
   wavyBlonde = loadImage('./assets/images/Hair/wavy.blonde.png');
   wavyBlue = loadImage('./assets/images/Hair/wavy.blue.png');
@@ -829,7 +868,7 @@ function preload() {
   wavyPink = loadImage('./assets/images/Hair/wavy.pink.png');
   wavyRed = loadImage('./assets/images/Hair/wavy.red.png');
   wavyUmber = loadImage('./assets/images/Hair/wavy.umber.png');
-
+  // ...
   black1 = loadImage('./assets/images/Strands/1.black.png');
   blonde1 = loadImage('./assets/images/Strands/1.blonde.png');
   brunette1 = loadImage('./assets/images/Strands/1.brunette.png');
@@ -840,7 +879,7 @@ function preload() {
   red1 = loadImage('./assets/images/Strands/1.red.png');
   umber1 = loadImage('./assets/images/Strands/1.umber.png');
   blue1 = loadImage('./assets/images/Strands/1.blue.png');
-
+  // ...
   black2 = loadImage('./assets/images/Strands/2.black.png');
   blonde2 = loadImage('./assets/images/Strands/2.blonde.png');
   brunette2 = loadImage('./assets/images/Strands/2.brunette.png');
@@ -852,6 +891,7 @@ function preload() {
   red2 = loadImage('./assets/images/Strands/2.red.png');
   blue2 = loadImage('./assets/images/Strands/2.blue.png');
 
+  // Loads the audios
   click = new Audio("./assets/sounds/ui-pop.mp3");
   pick = new Audio("./assets/sounds/ui-pick.mp3");
   allDone = new Audio("./assets/sounds/ui-done.mp3");
@@ -859,38 +899,42 @@ function preload() {
 
 function setup() {
   createCanvas(1200, 800);
+  // Creates the starts and done buttons
   start = new Start(445, 500, startButtonUp);
   done = new Done(950, 530, doneButtonUp);
 
-
   /**
-   * HEAD
+   * HEAD BUTTONS
    */
   // head shapes
   selectLong = new Select(500, 230, selectButtonUp, selectButtonDown);
   selectReg = new Select(500, 290, selectButtonUp, selectButtonDown);
+  // Starts the page with the regular head button selected
   selectReg.selected = true;
   selectWide = new Select(500, 350, selectButtonUp, selectButtonDown);
 
   // skin tones
   selectPeach = new Select(770, 230, selectButtonUp, selectButtonDown);
+  // Starts the page with the peach skin button selected
   selectPeach.selected = true;
   selectTan = new Select(770, 290, selectButtonUp, selectButtonDown);
   selectBrown = new Select(770, 350, selectButtonUp, selectButtonDown);
   selectDark = new Select(770, 410, selectButtonUp, selectButtonDown);
 
   /**
-   * FACE
+   * FACE BUTTONS
    */
   // noses
   selectBent = new Select(500, 230, selectButtonUp, selectButtonDown);
   selectButton = new Select(500, 290, selectButtonUp, selectButtonDown);
+  // Starts the page with the button nose button selected
   selectButton.selected = true;
   selectFlat = new Select(500, 350, selectButtonUp, selectButtonDown);
   selectStraight = new Select(500, 410, selectButtonUp, selectButtonDown);
 
   // mouths
   selectBuck = new Select(700, 230, selectButtonUp, selectButtonDown);
+  // Starts the page with the buck teeth mouth button selected
   selectBuck.selected = true;
   selectLipsSmile = new Select(700, 290, selectButtonUp, selectButtonDown);
   selectLips = new Select(700, 350, selectButtonUp, selectButtonDown);
@@ -905,10 +949,11 @@ function setup() {
   selectSharp = new Select(900, 410, selectButtonUp, selectButtonDown);
   selectRound = new Select(900, 470, selectButtonUp, selectButtonDown);
   selectDetailNone = new Select(900, 530, selectButtonUp, selectButtonDown);
+  // Starts the page with no face detail buttons selected
   selectDetailNone.selected = true;
 
   /**
-   * HAIR
+   * HAIR BUTTONS
    */
   // bangs
   selectBackBraids = new Select(500, 230, selectButtonUp, selectButtonDown);
@@ -925,7 +970,8 @@ function setup() {
   selectShortCurly = new Select(560, 470, selectButtonUp, selectButtonDown);  
   selectShort = new Select(560, 530, selectButtonUp, selectButtonDown);  
   selectSide = new Select(560, 590, selectButtonUp, selectButtonDown);
-  selectBangsNone = new Select(620, 230, selectButtonUp, selectButtonDown);  
+  selectBangsNone = new Select(620, 230, selectButtonUp, selectButtonDown);
+  // Starts the page with the curly bangs button selected
   selectCurly.selected = true;
 
   // hair
@@ -940,19 +986,22 @@ function setup() {
   selectStraightCut = new Select(810, 290, selectButtonUp, selectButtonDown);
   selectWavy = new Select(810, 350, selectButtonUp, selectButtonDown);
   selectHairNone = new Select(810, 410, selectButtonUp, selectButtonDown);
+  // Starts the page with the short cut hair button selected
   selectShortCut.selected = true;
 
   /**
-   * HAIR2
+   * HAIR2 BUTTONS
    */
   // strands
   selectStrands1 = new Select(500, 230, selectButtonUp, selectButtonDown);
   selectStrands2  = new Select(500, 290, selectButtonUp, selectButtonDown);
   selectStrandsNone = new Select(500, 350, selectButtonUp, selectButtonDown);
+  // Starts the page with the 1 strand button selected
   selectStrands1.selected = true;
 
   // dye 
   selectBlack = new Select(700, 230, selectButtonUp, selectButtonDown);
+  // Starts the page black hair colour button selected
   selectBlack.selected = true;
   selectBlonde = new Select(700, 290, selectButtonUp, selectButtonDown);
   selectBrunette = new Select(700, 350, selectButtonUp, selectButtonDown);
@@ -964,6 +1013,7 @@ function setup() {
   selectRed = new Select(760, 290, selectButtonUp, selectButtonDown);
   selectUmber = new Select(760, 350, selectButtonUp, selectButtonDown);
 
+  // Creates arrays for the customizable element buttons
   headSelectButtons = [selectLong, selectReg, selectWide];
   skinSelectButtons = [selectPeach, selectTan, selectBrown, selectDark];
   noseSelectButtons = [selectBent, selectButton, selectFlat, selectStraight];
@@ -978,31 +1028,43 @@ function setup() {
     selectRed, selectUmber];
 }
 
+/**  
+ * Draws each screen when called
+*/ 
 function draw() {
   background(255, 255, 255);
 
+  // When the site loads, open the start screen 
     if (whichscreen === "start") {
         startScreen()
     }
+  // Where the user can create their character
     else if (whichscreen === "game") {
         gameScreen()
     }
+      // Rip did not happen
     else if (whichscreen === "world") {
         worldScreen()
     }
+      // View the final result!
     else {
         productScreen()
     }
 }
 
+// Creates the start screen with all the start elements
 function startScreen() {
   image(title, 360, 90);
   image(namez, 435, 240);
   start.display();
 }
 
+// Creates the game screen where the user customizes their character
 function gameScreen() {
+  // Draws the notepad the character sits on
   image(frame, -80, 20);
+
+  // Draws the invisible tabs clicked on my the users to pick a section 
   noStroke();
   noFill();
   rect(headTab.x, headTab.y, headTab.w, headTab.h);
@@ -1019,9 +1081,10 @@ function gameScreen() {
   noFill();
   rect(hair2Tab.x, hair2Tab.y, hair2Tab.w, hair2Tab.h);
 
+  // Draws the file without any tabs
   image(file, 450, 160);
 
-
+  // When the game screen is loaded, the head file is first
   if (whichfile === "head") {
     headFile();
     }
@@ -1034,8 +1097,10 @@ function gameScreen() {
     else {
     hair2File();
   }
-done.display();
+  // Displays the done button on the right bottom corder of the screen
+  done.display();
 
+  // Draws the character elements customizable to the user by clicking the buttons
   drawHair();
   drawHead();
   drawFace();
@@ -1044,12 +1109,15 @@ done.display();
   drawGlasses();
 }
 
+// Creates the head file, opens when the game screen is loaded for the first tab is clicked
 function headFile() {
+  // Draws the tabs as only the first is open
   image(openTab, 480, 120);
   image(closedTab, 637, 120);
   image(closedTab, 794, 120);
   image(closedTab, 951, 120);
   
+  // Draws the buttons that customize the head elements 
   selectLong.display();
   selectReg.display();
   selectWide.display();
@@ -1058,15 +1126,17 @@ function headFile() {
   selectTan.display();
   selectBrown.display();
   selectDark.display();
-
 }
 
+// Creates the face file, opens when the second tab is clicked
 function faceFile() {
+  // Draws the tabs as only the second is open
   image(closedTab, 480, 120);
   image(openTab, 637, 120);
   image(closedTab, 794, 120);
   image(closedTab, 951, 120);
 
+  // Draws the buttons that customize the face elements 
   selectBent.display();
   selectButton.display();
   selectFlat.display();
@@ -1087,12 +1157,15 @@ function faceFile() {
   selectDetailNone.display();
 }
 
+// Creates the face file, opens when the third tab is clicked
 function hairFile() {
+  // Draws the tabs as only the third is open
   image(closedTab, 480, 120);
   image(closedTab, 637, 120);
   image(openTab, 794, 120);
   image(closedTab, 951, 120);
 
+  // Draws the buttons that customize the hair elements 
   selectBackBraids.display(); 
   selectBigFrizz.display();
   selectBowl.display();
@@ -1122,12 +1195,15 @@ function hairFile() {
   selectHairNone.display(); 
 }
 
+// Creates the hair2 file, opens when the fourth tab is clicked
 function hair2File() {
+  // Draws the tabs as only the fouth is open
   image(closedTab, 480, 120);
   image(closedTab, 637, 120);
   image(closedTab, 794, 120);
   image(openTab, 951, 120);
 
+  // Draws the buttons that customize the hair elements
   selectStrands1.display();
   selectStrands2.display();
   selectStrandsNone.display();
@@ -1143,9 +1219,12 @@ function hair2File() {
   selectUmber.display();
 }
 
+// Creates the product screen 
 function productScreen() {
+  // Draws the pad that the final character sits on
   image(frame, 240, 20);
 
+  // Draws the character elements of the final character
   drawHair();
   drawHead();
   drawFace();
@@ -1154,6 +1233,7 @@ function productScreen() {
   drawGlasses();
 }
 
+// Creates the start button animation
 class Start {
   constructor(inX, inY, inImg) {
     this.x = inX;
@@ -1163,7 +1243,7 @@ class Start {
   
   display() {
     
-    // tint the image on mouse hover
+    // Uses the second button image when the user's mouse hovers over it to appear pressed down
     if (this.over()) {
       image(startButtonDown, this.x, this.y);
     } else {
@@ -1171,8 +1251,8 @@ class Start {
     }
   }
   
-  // over automatically matches the width & height of the image read from the file
-  // see this.img.width and this.img.height below
+  // Over matches the width & height of the image read from the file
+  // Calculates if the mouse has crossed over the start button
   over() {
     if (mouseX > this.x && mouseX < this.x + this.startButtonUp.width && mouseY >
         this.y && mouseY < this.y + this.startButtonUp.height) {
@@ -1183,6 +1263,7 @@ class Start {
   }
 }
 
+// Creates the Done button animation
 class Done {
   constructor(inX, inY, inImg) {
     this.x = inX;
@@ -1190,18 +1271,17 @@ class Done {
     this.doneButtonUp = inImg;
   }
   
+  // Uses the second button image when the user's mouse hovers over it to appear pressed down
   display() {
-    
-    // tint the image on mouse hover
-    if (this.over()) {
+        if (this.over()) {
       image(doneButtonDown, this.x, this.y);
     } else {
       image(this.doneButtonUp, this.x, this.y);
     }
   }
   
-  // over automatically matches the width & height of the image read from the file
-  // see this.img.width and this.img.height below
+  // Over matches the width & height of the image read from the file
+  // Calculates if the mouse has crossed over the done button
   over() {
     if (mouseX > this.x && mouseX < this.x + this.doneButtonUp.width && mouseY >
         this.y && mouseY < this.y + this.doneButtonUp.height) {
@@ -1212,6 +1292,7 @@ class Done {
   }
 }
 
+// Creates the select buttons
 class Select {
   constructor(x, y, imgUp, imgDown) {
     this.x = x;
@@ -1237,6 +1318,8 @@ class Select {
     }
   }
 
+  // Over matches the width & height of the image read from the file
+  // Calculates if the mouse has crossed over the done button
   over() {
     return (
       mouseX > this.x &&
@@ -1246,6 +1329,7 @@ class Select {
     );
   }
 
+  // button stays down when clicked
   clicked() {
     if (this.over()) {
       this.selected = true;
@@ -1254,19 +1338,23 @@ class Select {
     return false;
   }
 
+  // resets the buttons when another button from the same array is pressed
   reset() {
     this.selected = false;
   }
 }
 
+// Calculates distance between the mouse and the invisible tabs 
 const distance = dist(mouseX, mouseY, faceTab.x, faceTab.y);
 const overlapsFaceTab = (distance < faceTab.w + faceTab.h /2);
 
 function mousePressed() {
+  // If the start button is pressed, switch to the game screen and play sound effect
     if (whichscreen === "start" && start.over()) {
       whichscreen = "game";
       click.play();
     }
+  // If the done button is pressed, switch to the product screen and play sound effect
   if (whichscreen === "game" && done.over()) {
       whichscreen = "product";
       allDone.play();
@@ -1275,7 +1363,9 @@ function mousePressed() {
   if (whichscreen === "game") {
 
  // HEAD TAB SELECT BUTTONS
-if (whichfile === "head") {
+  if (whichfile === "head") {
+    // If any buttons in the head buttons array are pressed, the coresponding image is called and 
+    // a sound effect is played 
   for (let btn of headSelectButtons) {
   if (btn.over()) {
     pick.play();
@@ -1288,7 +1378,8 @@ if (whichfile === "head") {
 
     return;
   }
-}
+  }
+  // same for skin tones array an so on...
   for (let btn of skinSelectButtons) {
   if (btn.over()) {
     pick.play();
@@ -1303,7 +1394,9 @@ if (whichfile === "head") {
 }
 }
   // FACE TAB SELECT BUTTONS
-if (whichfile === "face") {
+  if (whichfile === "face") {
+  // If any buttons in the face buttons array are pressed, the coresponding image is called and 
+    // a sound effect is played 
   for (let btn of noseSelectButtons) {
   if (btn.over()) {
     pick.play();
@@ -1354,13 +1447,14 @@ if (whichfile === "face") {
     }
 }
     // HAIR TAB SELECT BUTTONS
-if (whichfile === "hair") {
+  if (whichfile === "hair") {
   for (let btn of bangsSelectButtons) {
   if (btn.over()) {
     pick.play();
     bangsSelectButtons.forEach(b => b.reset());
     btn.clicked();
 
+    // no bangs are selected nothing appears, if anything else in the array is pressed, the bangs appear
       if (btn === selectBangsNone) {
       selectedBangs = "none";
       }
@@ -1444,7 +1538,10 @@ if (whichfile === "hair2") {
     }
   }
 }
-}
+  }
+  /**
+   * When an invisible tab is preseed, the associated file is opened and a sound is played
+   */
     // Head tab
     if (
       mouseX > headTab.x &&
@@ -1490,14 +1587,17 @@ if (whichfile === "hair2") {
     }
   }
 
+  // Draws all the glasses options depending on the skin tone selected
 function drawGlasses() {
   let img;
   let xOffset = 0;
   
+  // When the product screen is clicked, move the glasses to the center of the screen
     if (whichscreen === "product") {
     xOffset = 320;
   }
 
+  // Depending on the skin tone chosen, a certain shade if that type of glasses is shown
   if (selectedDetail !== "none") {
     if (selectedDetail === "sharp") {
       if (selectedSkin === "peach") img = sharpPeach;
@@ -1512,13 +1612,17 @@ function drawGlasses() {
       if (selectedSkin === "dark") img = roundDark;
     }
   }
+
+  // Sets the position of the glasses
   if (img) image(img, 100 + xOffset, 288); 
 }
 
+// Draws the face details, mouths and noses
 function drawFace() {
-  
+  // image of the details
   let imgD;
-  
+
+  // Depeding onb the skintone selects a certain shade of details
   if (selectedDetail !== "none") {
     if (selectedDetail === "bags") {
       if (selectedSkin === "peach") imgD = bagsPeach;
@@ -1540,35 +1644,39 @@ function drawFace() {
     }
   }
 
+  // image of the nose
   let imgN;
 
+  // Selects which nose
   if (selectedNose === "bent") imgN = bent;
   if (selectedNose === "button") imgN = button;
   if (selectedNose === "flat") imgN = flat;
   if (selectedNose === "straight") imgN = straight;
 
+  // image on the mouth
   let imgM;
+
   let oOffset = 0;
   let xOffset = 0;
 
-  // adjust based on style
+  // Adjusting importing alignment mistakes (multiples of 8 since I exported at 800%)
   if (selectedMouth === "neutral") {
     oOffset = -8;
   }
-
+  // When the product screen is displayed, move the face elements to the center of the screen
    if (whichscreen === "product") {
     xOffset = 320;
   }
   
   if (selectedMouth === "buck") imgM = buck;
 
+  // Displays the lips based on which skin tone is chosen
   if (selectedMouth === "lipsSmile") {
     if (selectedSkin === "peach") imgM = lipsSmilePeach;
     if (selectedSkin === "tan") imgM = lipsSmileTan;
     if (selectedSkin === "brown") imgM = lipsSmileBrown;
     if (selectedSkin === "dark") imgM = lipsSmileDark;
   }
-
   if (selectedMouth === "lips") {
     if (selectedMouth === "lips") {
       if (selectedSkin === "peach") imgM = lipsPeach;
@@ -1577,27 +1685,28 @@ function drawFace() {
       if (selectedSkin === "dark") imgM = lipsDark;
     }
   }
-
     if (selectedMouth === "neutral") imgM = neutral;
     if (selectedMouth === "smile") imgM = smile;
     if (selectedMouth === "teeth") imgM = teeth;
 
-  if (imgD) image(imgD, 100 + xOffset, 288);   // draw final result 
-  if (imgM) image(imgM, 100 + xOffset, 288 + oOffset);   // draw final result 
-  if (imgN) image(imgN, 100 + xOffset, 288);   // draw final result 
+  // Sets the position of the details, mouths and noses
+  if (imgD) image(imgD, 100 + xOffset, 288);   
+  if (imgM) image(imgM, 100 + xOffset, 288 + oOffset);  
+  if (imgN) image(imgN, 100 + xOffset, 288);  
   image(eyes, 100 + xOffset, 288);
 }
 
-
+// Draws the head options
 function drawHead() {
   let img;
   let Offset = 0;
   let xOffset = 0;
-  // adjust based on style
 
+  // if the product screen is chosen, move the head to the center of the screen
    if (whichscreen === "product") {
     xOffset = 320;
-  }
+   }
+  // Adjusts importing alignment mistakes 
   if (selectedHeadShape === "long") {
     Offset = 8;
   }
@@ -1608,20 +1717,19 @@ function drawHead() {
     Offset = 0;
   }
 
+  // Selects the head based on the shaoe and skin chosen
   if (selectedHeadShape === "long") {
     if (selectedSkin === "peach") img = longPeach;
     if (selectedSkin === "tan") img = longTan;
     if (selectedSkin === "brown") img = longBrown;
     if (selectedSkin === "dark") img = longDark;
   }
-
   if (selectedHeadShape === "reg") {
     if (selectedSkin === "peach") img = regPeach;
     if (selectedSkin === "tan") img = regTan;
     if (selectedSkin === "brown") img = regBrown;
     if (selectedSkin === "dark") img = regDark;
   }
-
   if (selectedHeadShape === "wide") {
     if (selectedSkin === "peach") img = widePeach;
     if (selectedSkin === "tan") img = wideTan;
@@ -1629,18 +1737,23 @@ function drawHead() {
     if (selectedSkin === "dark") img = wideDark;
   }
 
-  if (img) image(img, 100 + xOffset, 280 + Offset);   // 80 , 220 // x = +20 y = +60
+  // Diplays the position of the head
+  if (img) image(img, 100 + xOffset, 280 + Offset); 
 }
 
+// Draws the hair options on the first tab (long hair styles)
 function drawHair() {
   let img;
   let hyOffset = 0;
   let hxOffset = 0;
 
+  // poitions the hair in the center of the screen when the product screen is chosen
    if (whichscreen === "product") {
     hxOffset = 320;
-  }
+   }
   
+  // Adjusts position of har when imported 
+  // brunette and dirty are particularily off and need extra adjusting
   if (selectedDye === "brunette" || selectedDye === "dirty") {
     hyOffset = 8;
   }
@@ -1719,13 +1832,16 @@ function drawHair() {
     }
   }
 
+  // if headscarf is chosen, do npt display hair
   if (selectedBangs === "headscarf") {
       selectedHair = "none";
-    }
+  }
+  // if no hair is chosen, do not display hair
   if (selectedBangs === "none") {
       selectedHair = "none";
   }
 
+  // Displays chosen hairstyle acording to which hair colour is chosen
   if (selectedHair === "braids") {
     if (selectedDye === "black") img = braidsBlack;
     if (selectedDye === "blonde") img = braidsBlonde;
@@ -1847,20 +1963,24 @@ function drawHair() {
     if (selectedDye === "umber") img = wavyUmber;
   }
 
+  // Displays the position of the hair
   if (img) image(img, 36 + hxOffset, 296 + hyOffset); 
 }
 
+// Draws the hair strands 
 function drawStrands() {
   let imgS;
   let img;
   let xOffset = 0;
   let yOffset = 0;
+  // sOffset just for the 2 strands since they were imported wonky
   let syOffset = 0;
 
+  // if the product screen is chosen, display the strands in the center of the screen
    if (whichscreen === "product") {
     xOffset = 320;
   }
-
+  // Adjusts the position of the strands depending on the bangs chosen
   if (selectedDye === "pink" || selectedDye === "red" || selectedDye === "blue" || selectedDye === "ginger" || selectedDye === "blonde" || selectedDye === "grey") {
     syOffset = 8;
   }
@@ -1873,10 +1993,12 @@ function drawStrands() {
   if (selectedBangs === "shaved" && selectedStrands === "2") {
     yOffset = 8;
   }
+  // if headscarf is selected, do not display strands
   if (selectedBangs === "headscarf") {
       selectedStrands = "none";
   }
   
+  // displays the har strands depending on the hair colour chosen
   if (selectedStrands === "1") {
     if (selectedDye === "black") imgS = black1;
     if (selectedDye === "blonde") imgS = blonde1;
@@ -1901,22 +2023,23 @@ if (selectedStrands === "2") {
     if (selectedDye === "red") img = red2;
     if (selectedDye === "umber") img = umber2;
 }
-  
+  // Displays the position of the strands
   if (imgS) image(imgS, 164 + xOffset, 208 + yOffset + syOffset);
   if (img) image(img, 164 + xOffset, 208 + yOffset + syOffset);
 }
 
-
+// Draws the bangs (top of head hair)
 function drawBangs() {
-  
   let img;
   let xOffset = 0;
   let yOffset = 0;
 
+  // if the product screen is chosen, position the bangs in the center of the screen
   if (whichscreen === "product") {
     xOffset = 320;
   }
 
+  // Adjusting position to match head
   if (selectedBangs === "bowl") {
     yOffset = -8;
   }
@@ -1954,6 +2077,7 @@ function drawBangs() {
     yOffset = -8;
   }
 
+  // displays the bangs depending on the hair colour chosen
   if (selectedBangs === "bigFrizz") {
     if (selectedDye === "black") img = bigFrizzBlack;
     if (selectedDye === "blonde") img = bigFrizzBlonde;
@@ -1966,7 +2090,6 @@ function drawBangs() {
     if (selectedDye === "red") img = bigFrizzRed;
     if (selectedDye === "umber") img = bigFrizzUmber;
   }
-
   if (selectedBangs === "bowl") {
     if (selectedDye === "black") img = bowlBlack;
     if (selectedDye === "blonde") img = bowlBlonde;
@@ -1979,7 +2102,6 @@ function drawBangs() {
     if (selectedDye === "red") img = bowlRed;
     if (selectedDye === "umber") img = bowlUmber;
   }
-
   if (selectedBangs === "braidsBack") {
     if (selectedDye === "black") img = braidsBackBlack;
     if (selectedDye === "blonde") img = braidsBackBlonde;
@@ -1992,7 +2114,6 @@ function drawBangs() {
     if (selectedDye === "red") img = braidsBackRed;
     if (selectedDye === "umber") img = braidsBackUmber;
   }
-
   if (selectedBangs === "curly") {
     if (selectedDye === "black") img = curlyBlack;
     if (selectedDye === "blonde") img = curlyBlonde;
@@ -2005,7 +2126,6 @@ function drawBangs() {
     if (selectedDye === "red") img = curlyRed;
     if (selectedDye === "umber") img = curlyUmber;
   }
-
   if (selectedBangs === "curtain") {
     if (selectedDye === "black") img = curtainBlack;
     if (selectedDye === "blonde") img = curtainBlonde;
@@ -2018,7 +2138,6 @@ function drawBangs() {
     if (selectedDye === "red") img = curtainRed;
     if (selectedDye === "umber") img = curtainUmber;
   }
-
   if (selectedBangs === "fringe") {
     if (selectedDye === "black") img = fringeBlack;
     if (selectedDye === "blonde") img = fringeBlonde;
@@ -2031,7 +2150,6 @@ function drawBangs() {
     if (selectedDye === "red") img = fringeRed;
     if (selectedDye === "umber") img = fringeUmber;
   }
-
   if (selectedBangs === "frizz") {
     if (selectedDye === "black") img = frizzBlack;
     if (selectedDye === "blonde") img = frizzBlonde;
@@ -2044,7 +2162,6 @@ function drawBangs() {
     if (selectedDye === "red") img = frizzRed;
     if (selectedDye === "umber") img = frizzUmber;
   }
-
   if (selectedBangs === "headscarf") {
     if (selectedDye === "black") img = headscarfBlack;
     if (selectedDye === "blonde") img = headscarfBlonde;
@@ -2057,7 +2174,6 @@ function drawBangs() {
     if (selectedDye === "red") img = headscarfRed;
     if (selectedDye === "umber") img = headscarfUmber;
   }
-
   if (selectedBangs === "middleFringe") {
     if (selectedDye === "black") img = middleFringeBlack;
     if (selectedDye === "blonde") img = middleFringeBlonde;
@@ -2070,7 +2186,6 @@ function drawBangs() {
     if (selectedDye === "red") img = middleFringeRed;
     if (selectedDye === "umber") img = middleFringeUmber;
   }
-
   if (selectedBangs === "middle") {
     if (selectedDye === "black") img = middleBlack;
     if (selectedDye === "blonde") img = middleBlonde;
@@ -2083,7 +2198,6 @@ function drawBangs() {
     if (selectedDye === "red") img = middleRed;
     if (selectedDye === "umber") img = middleUmber;
   }
-
   if (selectedBangs === "shaved") {
     if (selectedDye === "black") img = shavedBlack;
     if (selectedDye === "blonde") img = shavedBlonde;
@@ -2096,7 +2210,6 @@ function drawBangs() {
     if (selectedDye === "red") img = shavedRed;
     if (selectedDye === "umber") img = shavedUmber;
   }
-
   if (selectedBangs === "shortCurly") {
     if (selectedDye === "black") img = shortCurlyBlack;
     if (selectedDye === "blonde") img = shortCurlyBlonde;
@@ -2109,7 +2222,6 @@ function drawBangs() {
     if (selectedDye === "red") img = shortCurlyRed;
     if (selectedDye === "umber") img = shortCurlyUmber;
   }
-
   if (selectedBangs === "short") {
     if (selectedDye === "black") img = shortBlack;
     if (selectedDye === "blonde") img = shortBlonde;
@@ -2122,7 +2234,6 @@ function drawBangs() {
     if (selectedDye === "red") img = shortRed;
     if (selectedDye === "umber") img = shortUmber;
   }
-
   if (selectedBangs === "side") {
     if (selectedDye === "black") img = sideBlack;
     if (selectedDye === "blonde") img = sideBlonde;
@@ -2136,6 +2247,6 @@ function drawBangs() {
     if (selectedDye === "umber") img = sideUmber;
   }
 
+  // displays the position of the bangs
   if (img) image(img, 100 + xOffset, 232 + yOffset);
-
 }
