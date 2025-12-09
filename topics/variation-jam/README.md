@@ -1,4 +1,4 @@
-# TITLE OF PROJECT
+# Variation Jam!
 
 Norah Wilcox
 
@@ -12,7 +12,7 @@ View this project online: https://norahwilcox.github.io/CART253/topics/variation
 
 > Use the tabs above the folder to navigate which elements you would like to change and click the "done" button once your little guy is finished!
 
-## Screenshot(s)
+## Screenshots
 
 > ![Image of the start screen](./assets/images/startscreen.jpeg)
 
