@@ -1097,8 +1097,6 @@ function gameScreen() {
     else {
     hair2File();
   }
-  // Displays the done button on the right bottom corder of the screen
-  done.display();
 
   // Draws the character elements customizable to the user by clicking the buttons
   drawHair();
@@ -1217,6 +1215,9 @@ function hair2File() {
   selectPink.display();
   selectRed.display();
   selectUmber.display();
+  
+  // Displays the done button on the right bottom corder of the screen
+  done.display();
 }
 
 // Creates the product screen 
